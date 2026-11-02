@@ -1,5 +1,7 @@
 # Medicare, Medicaid and SNAP: Enrollment and 2027 Forecast
 
+By [Ug2bKattinMe](https://github.com/ug2bkattinme), independent research analyst · [Substack @ug2bkattinme](https://substack.com/@ug2bkattinme)
+
 A scenario forecast of how many people lose Medicaid, SNAP, Medicare or Marketplace help, or a job tied to those cuts, in 2027, and what that costs the economy, households and hospitals at 6 months (January–June 2027) and 12 months (calendar 2027). Results are national and by state, with 95% intervals.
 
 > This is a modeled forecast, not an official projection. Every uncertain input and its basis is listed in `data/forecast_assumptions.csv` and on the page.
@@ -97,3 +99,10 @@ A second model that treats the groups as one linked system instead of independen
 - PublicaMundi, [MappingAPI US states GeoJSON](https://github.com/PublicaMundi/MappingAPI)
 
 The page's Sources section lists every link used.
+
+## Author and license
+
+Created by **Ug2bKattinMe**, independent research analyst.
+GitHub: [ug2bkattinme](https://github.com/ug2bkattinme) · Substack: [@ug2bkattinme](https://substack.com/@ug2bkattinme)
+
+© 2026 Ug2bKattinMe. All rights reserved. See [LICENSE](LICENSE). The underlying public data belong to their original publishers.
