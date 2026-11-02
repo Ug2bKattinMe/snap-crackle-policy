@@ -24,37 +24,37 @@
   <section aria-labelledby="h-headline">
     <h2 class="fc-h" id="h-headline">Headline forecast</h2>
     <div class="fc-tiles">
-      <div class="fc-tile">
+      <div class="fc-tile acc-all">
         <span class="lab">People affected, by June 30, 2027</span>
         <span class="big" data-draw="nat" data-source="national" data-where="metric_id=people&amp;months=6" data-field="median">—</span>
         <span class="rng" data-draw="natrange" data-source="national" data-where="metric_id=people&amp;months=6">—</span>
       </div>
-      <div class="fc-tile">
+      <div class="fc-tile acc-all">
         <span class="lab">People affected, by Dec 31, 2027</span>
         <span class="big" data-draw="nat" data-source="national" data-where="metric_id=people&amp;months=12" data-field="median">—</span>
         <span class="rng" data-draw="natrange" data-source="national" data-where="metric_id=people&amp;months=12">—</span>
       </div>
-      <div class="fc-tile">
+      <div class="fc-tile acc-econ">
         <span class="lab">Lost economic output (GDP), 6 months</span>
         <span class="big" data-draw="nat" data-source="national" data-where="metric_id=gdp_loss&amp;months=6" data-field="median">—</span>
         <span class="rng" data-draw="natrange" data-source="national" data-where="metric_id=gdp_loss&amp;months=6">—</span>
       </div>
-      <div class="fc-tile">
+      <div class="fc-tile acc-econ">
         <span class="lab">Lost economic output (GDP), 12 months</span>
         <span class="big" data-draw="nat" data-source="national" data-where="metric_id=gdp_loss&amp;months=12" data-field="median">—</span>
         <span class="rng" data-draw="natrange" data-source="national" data-where="metric_id=gdp_loss&amp;months=12">—</span>
       </div>
-      <div class="fc-tile">
+      <div class="fc-tile acc-jobs">
         <span class="lab">Jobs lost from the cuts, 12 months</span>
         <span class="big" data-draw="nat" data-source="national" data-where="metric_id=jobs_cut&amp;months=12" data-field="median">—</span>
         <span class="rng" data-draw="natrange" data-source="national" data-where="metric_id=jobs_cut&amp;months=12">—</span>
       </div>
-      <div class="fc-tile">
+      <div class="fc-tile acc-house">
         <span class="lab">Added costs to households, 12 months</span>
         <span class="big" data-draw="nat" data-source="national" data-where="metric_id=household_cost&amp;months=12" data-field="median">—</span>
         <span class="rng" data-draw="natrange" data-source="national" data-where="metric_id=household_cost&amp;months=12">—</span>
       </div>
-      <div class="fc-tile">
+      <div class="fc-tile acc-hosp">
         <span class="lab">Hospital and ER care for the newly uninsured, 12 months</span>
         <span class="big" data-draw="nat" data-source="national" data-where="metric_id=hosp_er_cost&amp;months=12" data-field="median">—</span>
         <span class="rng" data-draw="natrange" data-source="national" data-where="metric_id=hosp_er_cost&amp;months=12">—</span>
@@ -106,22 +106,22 @@
     <h2>Coupled model: how the losses feed each other in 2027</h2>
     <p class="fc-note">A second model follows Medicaid expansion adults month by month, tracking Medicaid, SNAP, work and hospital use together instead of treating each group on its own. Its levels come from 2026 data: SNAP caseloads through mid-2026, Nebraska's first Medicaid work-requirement results, the Federal Reserve's September 2026 outlook after the oil shock, September 2026 prices, 2026 Marketplace enrollment and 2026 hospital payer data. Older studies supply only relative effects, such as how much the odds of a hospital stay change when SNAP is cut.</p>
     <div class="fc-tiles">
-      <div class="fc-tile">
+      <div class="fc-tile acc-all">
         <span class="lab">People affected by Dec 31, 2027, coupled model</span>
         <span class="big" data-draw="cpl" data-source="coupled" data-where="metric_id=people&amp;months=12" data-field="median">—</span>
         <span class="rng" data-draw="cplrange" data-source="coupled" data-where="metric_id=people&amp;months=12">—</span>
       </div>
-      <div class="fc-tile">
+      <div class="fc-tile acc-mcd">
         <span class="lab">Off Medicaid because of the new rules, Dec 31</span>
         <span class="big" data-draw="cpl" data-source="coupled" data-where="metric_id=mcd_net&amp;months=12" data-field="median">—</span>
         <span class="rng" data-draw="cplrange" data-source="coupled" data-where="metric_id=mcd_net&amp;months=12">—</span>
       </div>
-      <div class="fc-tile">
+      <div class="fc-tile acc-hosp">
         <span class="lab">Hospital and ER care for the newly uninsured, 12 months</span>
         <span class="big" data-draw="cpl" data-source="coupled" data-where="metric_id=hosp_er_cost&amp;months=12" data-field="median">—</span>
         <span class="rng" data-draw="cplrange" data-source="coupled" data-where="metric_id=hosp_er_cost&amp;months=12">—</span>
       </div>
-      <div class="fc-tile">
+      <div class="fc-tile acc-snap">
         <span class="lab">Extra hospital stays linked to losing SNAP, 12 months</span>
         <span class="big" data-draw="cpl" data-source="coupled" data-where="metric_id=cascade_stays&amp;months=12" data-field="median">—</span>
         <span class="rng" data-draw="cplrange" data-source="coupled" data-where="metric_id=cascade_stays&amp;months=12">—</span>
@@ -225,7 +225,7 @@
   <div class="fc-grid">
     <section class="fc-card" id="state-map">
       <h2>People affected per 10,000 residents by Dec 31, 2027</h2>
-      <p class="fc-note">Darker states have a larger share of residents affected. Hover a state for its 6- and 12-month forecasts, 95% interval and GDP loss.</p>
+      <p class="fc-note">Colors run from the fewest people affected per resident (left end of the scale below the map) to the most (right end). Hover a state for its 6- and 12-month forecasts, 95% interval and GDP loss.</p>
       <div class="fc-chart fc-map" data-draw="map" data-source="states shapes"></div>
     </section>
 
