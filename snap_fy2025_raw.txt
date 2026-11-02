@@ -1,0 +1,51 @@
+Alabama|740270.5
+Alaska|64610.4167
+Arizona|889562.9167
+Arkansas|240377.9167
+California|5474022.5
+Colorado|612659.4167
+Connecticut|369294.5833
+Delaware|118828
+District of Columbia|140906.9167
+Florida|3006145
+Georgia|1768364.583
+Hawaii|161311.9167
+Idaho|133123
+Illinois|1895979.333
+Indiana|591860.0833
+Iowa|264522.5833
+Kansas|187181.1667
+Kentucky|595471.5
+Louisiana|818438.4167
+Maine|166320.8333
+Maryland|675134.1667
+Massachusetts|1087752.25
+Michigan|1490109.667
+Minnesota|452645
+Mississippi|363308.75
+Missouri|662381.75
+Montana|79828.0833
+Nebraska|150587.25
+Nevada|495769.3333
+New Hampshire|75856.8333
+New Jersey|827628.25
+New Mexico|466080.75
+New York|2958255
+North Carolina|1439834.667
+North Dakota|55259.5
+Ohio|1436238.75
+Oklahoma|694230.3333
+Oregon|770894.5
+Pennsylvania|1964591.25
+Rhode Island|143670
+South Carolina|591353.9167
+South Dakota|75175.9167
+Tennessee|696070.5
+Texas|3472443.083
+Utah|176220.0833
+Vermont|64801.6667
+Virginia|817733.3333
+Washington|902995.6667
+West Virginia|272842.6667
+Wisconsin|693081.75
+Wyoming|27489

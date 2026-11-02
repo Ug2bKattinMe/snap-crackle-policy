@@ -1,0 +1,96 @@
+/* Design tokens the dashboard styles and charts use. Light by default, dark when the system asks for it. */
+:root {
+  --color-bg: #f6f7f9;
+  --color-panel: #ffffff;
+  --color-fg: #1b1f27;
+  --color-fg-muted: #5b6372;
+  --color-border-line: #e1e4ea;
+  --color-ok: #2f7d4f;
+  --color-warn: #a86b12;
+  --color-bad: #c0392b;
+
+  --cds-text-primary: var(--color-fg);
+  --cds-text-secondary: var(--color-fg-muted);
+  --cds-surface-popover: #ffffff;
+  --cds-border: #d5d9e0;
+  --cds-shadow-popover: 0 6px 20px rgba(20, 24, 33, 0.14);
+  --cds-chart-grid: #e8ebf0;
+  --cds-chart-axis: #9aa2b1;
+  --cds-chart-reference: #8a92a1;
+  --cds-chart-muted: #c4c9d2;
+
+  --chart-1: #2f6fde;
+  --chart-2: #d1663f;
+  --chart-3: #3b9a74;
+  --chart-4: #8b5cc8;
+  --chart-5: #c9a227;
+  --chart-6: #2a9fb0;
+  --chart-7: #c2508a;
+  --chart-8: #6b7a8f;
+
+  --font-anthropic-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-anthropic-serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --cds-font-size-caption: 0.8125rem;
+  --cds-font-size-body: 0.9375rem;
+  --cds-font-size-heading: 1.0625rem;
+  --cds-font-size-title: 1.875rem;
+  --cds-font-weight-medium: 600;
+  --cds-gap-xs: 0.25rem;
+  --cds-gap-sm: 0.5rem;
+  --cds-gap-md: 1rem;
+  --cds-gap-lg: 1.5rem;
+  --cds-pad-xs: 0.25rem;
+  --cds-pad-sm: 0.5rem;
+  --cds-pad-md: 0.75rem;
+  --cds-pad-lg: 1.125rem;
+  --cds-radius: 8px;
+  --cds-dur-slow: 300ms;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #12151b;
+    --color-panel: #1a1e26;
+    --color-fg: #e8eaee;
+    --color-fg-muted: #a2a9b6;
+    --color-border-line: #2b313c;
+    --color-ok: #5cbf86;
+    --color-warn: #e0a64a;
+    --color-bad: #ef6a5b;
+    --cds-surface-popover: #232833;
+    --cds-border: #353c48;
+    --cds-shadow-popover: 0 6px 20px rgba(0, 0, 0, 0.45);
+    --cds-chart-grid: #262c36;
+    --cds-chart-axis: #6c7483;
+    --cds-chart-reference: #7d8594;
+    --cds-chart-muted: #3d4450;
+    --chart-1: #6d9cf2;
+    --chart-2: #ec8a63;
+    --chart-3: #5fc297;
+    --chart-4: #ae88e6;
+    --chart-5: #e3c255;
+    --chart-6: #57c3d2;
+    --chart-7: #e07bb0;
+    --chart-8: #93a1b5;
+    color-scheme: dark;
+  }
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-anthropic-sans);
+  font-size: var(--cds-font-size-body);
+  line-height: 1.5;
+}
+#dash-root {
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-block: 1.5rem 3rem;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.dash-skeleton { background: var(--cds-chart-grid); border-radius: var(--cds-radius); min-height: 14rem; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--chart-1); outline-offset: 2px; }

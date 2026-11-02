@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>2027 Coverage, SNAP and Jobs Impact Forecast</title>
+  <meta name="description" content="Scenario forecast of people losing Medicaid, SNAP, Medicare or Marketplace help or jobs in 2027, and the financial and economic impact at 6 and 12 months, by state.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Source+Serif+4:opsz,wght@8..60,400&display=swap">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+  <script src="js/dash-shim.js"></script>
+</head>
+<body>
+  <main id="dash-root">
+<div class="fc">
+  <header>
+    <h1 class="fc-title">2027 coverage, SNAP and jobs impact forecast</h1>
+    <p class="fc-take">By the end of June 2027, about <b data-draw="nat" data-source="national" data-where="metric_id=people&amp;months=6" data-field="median">—</b> people are forecast to have lost Medicaid, SNAP, Medicare or Marketplace help, or a job tied to the cuts, counting each person once. By the end of 2027 that rises to <b data-draw="nat" data-source="national" data-where="metric_id=people&amp;months=12" data-field="median">—</b> (95% interval <b data-draw="nat" data-source="national" data-where="metric_id=people&amp;months=12" data-field="low">—</b> to <b data-draw="nat" data-source="national" data-where="metric_id=people&amp;months=12" data-field="high">—</b>), with about <b data-draw="nat" data-source="national" data-where="metric_id=gdp_loss&amp;months=12" data-field="median">—</b> in lost economic output over the year.</p>
+  </header>
+
+  <section aria-labelledby="h-headline">
+    <h2 class="fc-h" id="h-headline">Headline forecast</h2>
+    <div class="fc-tiles">
+      <div class="fc-tile">
+        <span class="lab">People affected, by June 30, 2027</span>
+        <span class="big" data-draw="nat" data-source="national" data-where="metric_id=people&amp;months=6" data-field="median">—</span>
+        <span class="rng" data-draw="natrange" data-source="national" data-where="metric_id=people&amp;months=6">—</span>
+      </div>
+      <div class="fc-tile">
+        <span class="lab">People affected, by Dec 31, 2027</span>
+        <span class="big" data-draw="nat" data-source="national" data-where="metric_id=people&amp;months=12" data-field="median">—</span>
+        <span class="rng" data-draw="natrange" data-source="national" data-where="metric_id=people&amp;months=12">—</span>
+      </div>
+      <div class="fc-tile">
+        <span class="lab">Lost economic output (GDP), 6 months</span>
+        <span class="big" data-draw="nat" data-source="national" data-where="metric_id=gdp_loss&amp;months=6" data-field="median">—</span>
+        <span class="rng" data-draw="natrange" data-source="national" data-where="metric_id=gdp_loss&amp;months=6">—</span>
+      </div>
+      <div class="fc-tile">
+        <span class="lab">Lost economic output (GDP), 12 months</span>
+        <span class="big" data-draw="nat" data-source="national" data-where="metric_id=gdp_loss&amp;months=12" data-field="median">—</span>
+        <span class="rng" data-draw="natrange" data-source="national" data-where="metric_id=gdp_loss&amp;months=12">—</span>
+      </div>
+      <div class="fc-tile">
+        <span class="lab">Jobs lost from the cuts, 12 months</span>
+        <span class="big" data-draw="nat" data-source="national" data-where="metric_id=jobs_cut&amp;months=12" data-field="median">—</span>
+        <span class="rng" data-draw="natrange" data-source="national" data-where="metric_id=jobs_cut&amp;months=12">—</span>
+      </div>
+      <div class="fc-tile">
+        <span class="lab">Added costs to households, 12 months</span>
+        <span class="big" data-draw="nat" data-source="national" data-where="metric_id=household_cost&amp;months=12" data-field="median">—</span>
+        <span class="rng" data-draw="natrange" data-source="national" data-where="metric_id=household_cost&amp;months=12">—</span>
+      </div>
+      <div class="fc-tile">
+        <span class="lab">Hospital and ER care for the newly uninsured, 12 months</span>
+        <span class="big" data-draw="nat" data-source="national" data-where="metric_id=hosp_er_cost&amp;months=12" data-field="median">—</span>
+        <span class="rng" data-draw="natrange" data-source="national" data-where="metric_id=hosp_er_cost&amp;months=12">—</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="fc-grid">
+    <section class="fc-card" id="timeline">
+      <h2>People affected month by month in 2027</h2>
+      <p class="fc-note">Combined, de-duplicated count at the end of each month. The shaded band is the 95% interval. The line starts above zero because people already off SNAP since late 2025 and Marketplace losses at the January 1 plan-year start count from day one.</p>
+      <div class="fc-chart" data-draw="timeline" data-source="timeline"></div>
+    </section>
+
+    <section class="fc-card" id="components">
+      <h2>Who is in the count at 6 and 12 months</h2>
+      <p class="fc-note">Median people in each group after removing people counted twice. SNAP losses are already in place by January; Medicaid losses build as states run work-rule checks and six-month renewals.</p>
+      <div class="fc-chart" data-draw="components" data-source="timeline"></div>
+    </section>
+  </div>
+
+  <section class="fc-card" id="dollars">
+    <h2>Financial and economic impact, 6 and 12 months</h2>
+    <p class="fc-note">Median dollars over each period, with the 95% interval as a line. Federal spending reduction is money no longer flowing into states; GDP loss adds the knock-on spending it supported. Household costs are lost SNAP benefits, new medical bills for the newly uninsured, and higher Medicare premiums and drug costs.</p>
+    <div class="fc-chart" data-draw="dollars" data-source="national"></div>
+  </section>
+
+  <section class="fc-card" id="hospital">
+    <h2>Cost of uninsured people seeking care at hospitals and emergency rooms</h2>
+    <p class="fc-note">People who lose Medicaid, Medicare or Marketplace coverage and stay uninsured still go to emergency rooms and get admitted to hospitals. This estimates that care at hospital cost (what it costs hospitals to provide, not billed charges) and how much goes unpaid. Medians with 95% intervals.</p>
+    <div class="fc-tablewrap">
+      <table data-source="national" data-row-key="metric_id,months">
+        <thead>
+          <tr>
+            <th data-field="metric">Measure</th>
+            <th data-field="horizon">Period</th>
+            <th data-field="median">Median</th>
+            <th data-field="low">95% low</th>
+            <th data-field="high">95% high</th>
+          </tr>
+        </thead>
+        <tbody data-draw="hosptable" data-source="national"></tbody>
+      </table>
+    </div>
+    <p class="fc-note">Unpaid care becomes uncompensated care: hospitals absorb it, then pass part of it on through higher prices for insured patients and draw on state and local funds. It falls hardest on safety-net hospitals in states with many expansion adults. People counts are as of the end of each period; visits, stays and dollars are totals over the period.</p>
+  </section>
+
+  <section class="fc-card" id="coupled">
+    <h2>Coupled model: how the losses feed each other in 2027</h2>
+    <p class="fc-note">A second model follows Medicaid expansion adults month by month, tracking Medicaid, SNAP, work and hospital use together instead of treating each group on its own. Its levels come from 2026 data: SNAP caseloads through mid-2026, Nebraska's first Medicaid work-requirement results, the Federal Reserve's September 2026 outlook after the oil shock, September 2026 prices, 2026 Marketplace enrollment and 2026 hospital payer data. Older studies supply only relative effects, such as how much the odds of a hospital stay change when SNAP is cut.</p>
+    <div class="fc-tiles">
+      <div class="fc-tile">
+        <span class="lab">People affected by Dec 31, 2027, coupled model</span>
+        <span class="big" data-draw="cpl" data-source="coupled" data-where="metric_id=people&amp;months=12" data-field="median">—</span>
+        <span class="rng" data-draw="cplrange" data-source="coupled" data-where="metric_id=people&amp;months=12">—</span>
+      </div>
+      <div class="fc-tile">
+        <span class="lab">Off Medicaid because of the new rules, Dec 31</span>
+        <span class="big" data-draw="cpl" data-source="coupled" data-where="metric_id=mcd_net&amp;months=12" data-field="median">—</span>
+        <span class="rng" data-draw="cplrange" data-source="coupled" data-where="metric_id=mcd_net&amp;months=12">—</span>
+      </div>
+      <div class="fc-tile">
+        <span class="lab">Hospital and ER care for the newly uninsured, 12 months</span>
+        <span class="big" data-draw="cpl" data-source="coupled" data-where="metric_id=hosp_er_cost&amp;months=12" data-field="median">—</span>
+        <span class="rng" data-draw="cplrange" data-source="coupled" data-where="metric_id=hosp_er_cost&amp;months=12">—</span>
+      </div>
+      <div class="fc-tile">
+        <span class="lab">Extra hospital stays linked to losing SNAP, 12 months</span>
+        <span class="big" data-draw="cpl" data-source="coupled" data-where="metric_id=cascade_stays&amp;months=12" data-field="median">—</span>
+        <span class="rng" data-draw="cplrange" data-source="coupled" data-where="metric_id=cascade_stays&amp;months=12">—</span>
+      </div>
+    </div>
+
+    <div class="fc-grid" style="margin-top: var(--cds-gap-lg)">
+      <div>
+        <h2 class="fc-h" id="h-cpl-medicaid">Medicaid losses month by month</h2>
+        <p class="fc-note">People off Medicaid because of the new rules at the end of each month, compared with a no-new-rules run (annual renewals, normal churn). The band is the 95% interval. The gap between "ever lost" and "off at month end" is people who re-enrolled. By June 30 the chain reaches <b data-draw="cplshare" data-source="coupled_timeline">—</b> of its December total; the first model assumed 35–60%.</p>
+        <div class="fc-chart" data-draw="cpltimeline" data-source="coupled_timeline"></div>
+      </div>
+      <div>
+        <h2 class="fc-h" id="h-cpl-findings">What coupling changes</h2>
+        <ul>
+          <li><b>SNAP is larger.</b> Anchored to the observed fall of about 5 million since July 2025, the model counts <b data-draw="cpl" data-source="coupled" data-where="metric_id=snap_total&amp;months=12" data-field="median">—</b> off SNAP because of the law, higher than the first model, which started from CBO's estimate.</li>
+          <li><b>Medicaid losses are smaller.</b> Re-enrollment and the no-new-rules comparison bring Medicaid losses to <b data-draw="cpl" data-source="coupled" data-where="metric_id=mcd_net&amp;months=12" data-field="median">—</b> at year end; <b data-draw="cpl" data-source="coupled" data-where="metric_id=mcd_ever&amp;months=12" data-field="median">—</b> lose coverage at some point.</li>
+          <li><b>The overlap comes out of the chain.</b> <b data-draw="cpl" data-source="coupled" data-where="metric_id=mcd_overlap&amp;months=12" data-field="median">—</b> people lose both Medicaid and SNAP, counted once.</li>
+          <li><b>Hospital costs are higher.</b> 2023 unwinding data show people keep going to the ER after losing Medicaid, so uninsured hospital and ER care comes to <b data-draw="cpl" data-source="coupled" data-where="metric_id=hosp_er_cost&amp;months=12" data-field="median">—</b>, of which <b data-draw="cpl" data-source="coupled" data-where="metric_id=uncomp_care&amp;months=12" data-field="median">—</b> goes unpaid.</li>
+          <li><b>The health cascade is real but modest.</b> Losing SNAP adds about <b data-draw="cpl" data-source="coupled" data-where="metric_id=cascade_stays&amp;months=12" data-field="median">—</b> hospital stays costing <b data-draw="cpl" data-source="coupled" data-where="metric_id=cascade_cost&amp;months=12" data-field="median">—</b>, and about <b data-draw="cpl" data-source="coupled" data-where="metric_id=health_jobs&amp;months=12" data-field="median">—</b> jobs lost after those stays.</li>
+          <li><b>The coverage gap depends on the economy.</b> In the 10 non-expansion states it is close to zero unless unemployment rises; in the worst 2.5% of scenarios it reaches <b data-draw="cpl" data-source="coupled" data-where="metric_id=gap&amp;months=12" data-field="high">—</b>.</li>
+          <li><b>Costs passed to commercial premiums are small.</b> About <b data-draw="cpl" data-source="coupled" data-where="metric_id=cost_shift&amp;months=12" data-field="median">—</b> over the year, roughly <b data-draw="cpl" data-source="coupled" data-where="metric_id=cost_shift_per_person&amp;months=12" data-field="median">—</b> per commercially insured person.</li>
+          <li><b>Linked inputs widen the interval.</b> With the shared friction and economy factors, the 12-month interval is <b data-draw="cplwidth" data-source="coupled">—</b> wider than with every input drawn separately.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2 class="fc-h" id="h-cpl-compare" style="margin-top: var(--cds-gap-lg)">First model vs coupled model, 12 months</h2>
+    <p class="fc-note">Medians, with the coupled model's 95% interval and the interval it would have if its inputs were drawn independently.</p>
+    <div class="fc-tablewrap">
+      <table data-source="cpl_compare" data-row-key="measure_id">
+        <thead>
+          <tr>
+            <th data-field="measure">Measure</th>
+            <th data-field="independent">First model</th>
+            <th data-field="coupled">Coupled model</th>
+            <th data-field="coupled_low" class="hide-narrow">Coupled 95% low</th>
+            <th data-field="coupled_high" class="hide-narrow">Coupled 95% high</th>
+            <th data-field="unlinked_low" class="hide-narrow">Unlinked 95% low</th>
+            <th data-field="unlinked_high" class="hide-narrow">Unlinked 95% high</th>
+          </tr>
+        </thead>
+        <tbody data-draw="cplcompare" data-source="cpl_compare"></tbody>
+      </table>
+    </div>
+
+    <details style="margin-top: var(--cds-gap-lg)">
+      <summary>How the coupled model works</summary>
+      <ol style="margin-top: var(--cds-gap-md)">
+        <li><b>A monthly chain for the 20.4 million expansion adults.</b> Each person is in one of 48 combined states: Medicaid, uninsured or other coverage; never on SNAP, on SNAP, recently cut or cut; employed or not; subject to work rules or exempt.</li>
+        <li><b>Checks drive Medicaid losses.</b> Each person's first check comes at their next annual renewal, then every six months. Failure rates are set from Nebraska's 2026 results, are higher for adults not employed and for people already cut from SNAP, and lower for exempt adults. People can re-enroll after showing a compliant month. A second run without the new rules is subtracted.</li>
+        <li><b>SNAP losses</b> are anchored to the fall observed since July 2025, with the share caused by the law as a range, plus further 2027 losses. Inside the chain, adults not working lose SNAP under the time limit.</li>
+        <li><b>Losing SNAP raises the odds of a hospital stay</b> on a logistic scale: an odds ratio for losing participation times an odds ratio per $10 of benefit, converted from 2026 prices to the study's prices, building up over three months.</li>
+        <li><b>Jobs and coverage are linked.</b> Job loss and finding rates follow the unemployment path; a hospital stay can lead to job loss; not working raises the chance of failing the Medicaid check; in non-expansion states a job loss can push low-income Marketplace enrollees below 100% of poverty.</li>
+        <li><b>Hospital care for the newly uninsured</b> uses ER and stay rates relative to insured adults from 2023–2026 payer data, at 2027 hospital costs; part of the unpaid cost may pass to commercial premiums.</li>
+        <li><b>Inputs move together.</b> One shared factor links Medicaid, SNAP and Marketplace losses (state paperwork and verification), another links unemployment, job loss and hiring. 10,000 scenarios; 95% intervals are the 2.5th to 97.5th percentiles.</li>
+      </ol>
+      <div class="fc-tablewrap" style="margin-top: var(--cds-gap-md)">
+        <table data-source="coupled_inputs" data-row-key="id">
+          <thead>
+            <tr>
+              <th data-field="parameter">Input</th>
+              <th data-field="low">Low</th>
+              <th data-field="central">Central</th>
+              <th data-field="high">High</th>
+              <th data-field="unit">Unit</th>
+              <th data-field="basis">Basis</th>
+            </tr>
+          </thead>
+          <tbody data-draw="cplinputs" data-source="coupled_inputs"></tbody>
+        </table>
+      </div>
+      <ul class="small" style="margin-top: var(--cds-gap-md)">
+        <li>Nebraska's figures are from an early rollout before CMS's June 2026 rule, so the central failure rate is set below them; states with strong data matching could see fewer losses.</li>
+        <li>The SNAP and hospital-stay link comes from a study of adults 65 and older (2009–12); most people cut from SNAP in 2027 are younger, so the range includes no effect.</li>
+        <li>The model has no individual records; the joint states are built from state totals and published shares.</li>
+      </ul>
+    </details>
+
+    <details style="margin-top: var(--cds-gap-md)">
+      <summary>Coupled model by state</summary>
+      <div class="fc-tablewrap" style="margin-top: var(--cds-gap-md)">
+        <table data-source="coupled_states" data-row-key="state">
+          <thead>
+            <tr>
+              <th data-field="state">State</th>
+              <th data-field="people_12m">People affected, 12 months</th>
+              <th data-field="people_12m_low" class="hide-narrow">95% low</th>
+              <th data-field="people_12m_high" class="hide-narrow">95% high</th>
+              <th data-field="per10k_12m">Per 10,000 residents</th>
+              <th data-field="hosp_er_12m">Hospital and ER care, newly uninsured ($M)</th>
+              <th data-field="uncomp_12m" class="hide-narrow">Unpaid ($M)</th>
+            </tr>
+          </thead>
+          <tbody data-draw="cplstates" data-source="coupled_states"></tbody>
+        </table>
+      </div>
+    </details>
+  </section>
+
+  <div class="fc-grid">
+    <section class="fc-card" id="state-map">
+      <h2>People affected per 10,000 residents by Dec 31, 2027</h2>
+      <p class="fc-note">Darker states have a larger share of residents affected. Hover a state for its 6- and 12-month forecasts, 95% interval and GDP loss.</p>
+      <div class="fc-chart fc-map" data-draw="map" data-source="states shapes"></div>
+    </section>
+
+    <section class="fc-card" id="jobs">
+      <h2>Job losses</h2>
+      <p class="fc-note">Two job measures go into the forecast. Jobs lost from the cuts come from less federal money reaching hospitals, clinics and grocers. The economy-wide outlook comes from the Federal Reserve's September 2026 projections, which put unemployment at <b data-draw="assume" data-source="assumptions" data-where="id=u12" data-field="central">—</b>% at the end of 2027 (range <b data-draw="assume" data-source="assumptions" data-where="id=u12" data-field="low">—</b>% to <b data-draw="assume" data-source="assumptions" data-where="id=u12" data-field="high">—</b>%), against 4.2% in September 2026.</p>
+      <div class="fc-chart" data-draw="jobs" data-source="national"></div>
+      <p class="fc-note">Because the Fed's middle projection shows no net rise in unemployment, the forecast counts the larger of the two measures in each scenario, not their sum: the Fed's outlook already reflects these policies. In high-unemployment scenarios the economy-wide rise is the larger one.</p>
+    </section>
+  </div>
+
+  <section class="fc-card" id="state-table">
+    <h2>Forecast by state</h2>
+    <p class="fc-note">Medians with 95% intervals. Dollars in millions. State intervals move together because they share the same national scenarios.</p>
+    <div class="fc-tablewrap">
+      <table data-source="states" data-row-key="state">
+        <thead>
+          <tr>
+            <th data-field="state">State</th>
+            <th data-field="people_6m">People affected, 6 months</th>
+            <th data-field="people_12m">People affected, 12 months</th>
+            <th data-field="people_12m_low" class="hide-narrow">12-month low (2.5th)</th>
+            <th data-field="people_12m_high" class="hide-narrow">12-month high (97.5th)</th>
+            <th data-field="per10k_12m">Per 10,000 residents, 12 months</th>
+            <th data-field="jobs_cut_12m" class="hide-narrow">Jobs lost from cuts, 12 months</th>
+            <th data-field="fed_cut_12m" class="hide-narrow">Federal spending reduction, 12 months ($M)</th>
+            <th data-field="gdp_loss_6m" class="hide-narrow">GDP loss, 6 months ($M)</th>
+            <th data-field="gdp_loss_12m">GDP loss, 12 months ($M)</th>
+            <th data-field="medicare_cost_12m" class="hide-narrow">Added Medicare costs, 12 months ($M)</th>
+            <th data-field="hosp_er_12m">Hospital and ER care for newly uninsured, 12 months ($M)</th>
+            <th data-field="uncomp_12m" class="hide-narrow">Unpaid hospital care, 12 months ($M)</th>
+          </tr>
+        </thead>
+        <tbody data-draw="statetable" data-source="states"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="fc-card" id="method">
+    <h2>Methodology</h2>
+    <p class="fc-note">This is a scenario forecast built for this page, not an official projection. Every input range is listed below with its basis.</p>
+    <ol>
+      <li><b>Start from the people each 2027 rule reaches.</b> Medicaid expansion adults by state (20.4 million, scaled to CMS's June 2025 count), SNAP recipients (FY2025, USDA), immigrants losing Medicaid or Medicare (CBO), Marketplace enrollees and Medicare enrollees, all from the companion enrollment page and 2027 policy report.</li>
+      <li><b>Apply loss rates and timing.</b> Each group gets a range for how many lose coverage or benefits and how fast. Medicaid losses build through 2027 as states check work hours and run six-month renewals; SNAP losses are already in place from the November 2025 rule change; Marketplace losses land mostly at the January 1 plan-year start.</li>
+      <li><b>Add job losses.</b> Jobs lost from the cuts equal lost federal dollars times jobs per $1 billion from an input-output model (Commonwealth Fund/GWU, IMPLAN). The economy-wide change is the Federal Reserve's unemployment projection applied to the labor force. The larger of the two is counted.</li>
+      <li><b>Remove double counting.</b> Adults who lose both Medicaid and SNAP under the same work rules are counted once, as are job losers already in another group.</li>
+      <li><b>Turn people into dollars.</b> Federal spending reduction = people losing each program times its average federal cost (Medicaid per expansion adult, SNAP benefit, premium tax credit), over the months they are off. GDP loss applies a spending multiplier to each. State and local tax loss is a share of GDP loss. For hospital and ER care, the people who lose Medicaid, Medicare or Marketplace coverage and stay uninsured are multiplied by ER visit and hospital stay rates and by the hospital cost of each visit and stay (HCUP); the unpaid share of that cost is uncompensated care. New out-of-pocket costs are applied per newly uninsured person-month. Medicare cost increases apply to everyone who pays the higher Part B premium and Part D costs.</li>
+      <li><b>Simulate 20,000 scenarios.</b> Each scenario draws every input from its range (uniform or triangular). The headline is the median scenario; the 95% interval is the 2.5th to 97.5th percentile. States get each scenario's national totals in proportion to their enrollment, SNAP, population or Medicare shares, so state intervals move together.</li>
+      <li><b>Report at 6 and 12 months.</b> People counts are as of June 30 and December 31, 2027; dollars are totals over January–June and January–December 2027, in 2027 dollars.</li>
+    </ol>
+    <h2 class="fc-h" style="margin-top: var(--cds-gap-lg)">Model inputs</h2>
+    <div class="fc-tablewrap">
+      <table data-source="assumptions" data-row-key="id">
+        <thead>
+          <tr>
+            <th data-field="parameter">Input</th>
+            <th data-field="low">Low</th>
+            <th data-field="central">Central</th>
+            <th data-field="high">High</th>
+            <th data-field="unit">Unit</th>
+            <th data-field="basis">Basis</th>
+          </tr>
+        </thead>
+        <tbody data-draw="assumetable" data-source="assumptions"></tbody>
+      </table>
+    </div>
+    <ul class="small" style="margin-top: var(--cds-gap-md)">
+      <li>The 95% interval covers uncertainty in these inputs only. It does not cover a recession, new legislation, court rulings, or states delaying work rules under good-faith exemptions, any of which could move results outside it.</li>
+      <li>Loss rates come from early evidence (Arkansas 2018, SNAP caseloads since late 2025) and CBO estimates for the enacted law; real 2027 losses depend on each state's exemptions, data matching and outreach.</li>
+      <li>Job and GDP effects use multipliers from a study of the House-passed bill applied to this forecast's smaller 2027 dollar amounts; most of the law's cuts fall after 2027, so later years would be larger.</li>
+      <li>Dual enrollees keep Medicaid help with Medicare costs and are exempt from work rules; they appear here through the Medicare cost increases, not as coverage losses.</li>
+    </ul>
+  </section>
+
+  <section class="fc-card" id="sources">
+    <details>
+      <summary>Sources</summary>
+      <ul class="small" style="margin-top: var(--cds-gap-md)">
+        <li><a href="https://federalreserve.gov/monetarypolicy/fomcprojtabl20260916.htm" target="_blank" rel="noopener noreferrer">Federal Reserve, Summary of Economic Projections, September 16, 2026</a>: unemployment and GDP outlook</li>
+        <li><a href="https://drawpie.com/blog/september-2026-jobs-report-payrolls-unemployment/" target="_blank" rel="noopener noreferrer">September 2026 jobs report summary</a>: 4.2% unemployment, 7.1 million unemployed</li>
+        <li><a href="https://www.commonwealthfund.org/publications/issue-briefs/2025/jun/how-medicaid-snap-cutbacks-one-big-beautiful-bill-trigger-job-losses-states" target="_blank" rel="noopener noreferrer">Commonwealth Fund/GWU, How Medicaid and SNAP cutbacks could trigger job losses in states</a>: jobs, GDP and tax multipliers</li>
+        <li><a href="https://hcup-us.ahrq.gov/reports/statbriefs/sb311-ED-visit-costs-2021.pdf" target="_blank" rel="noopener noreferrer">AHRQ HCUP Statistical Brief 311, costs of ER visits, 2021</a>: $610 per uninsured treat-and-release visit</li>
+        <li><a href="https://www.hcup-us.ahrq.gov/reports/statbriefs/sb182-Medicaid-Uninsured-Hospitalizations-2012.jsp" target="_blank" rel="noopener noreferrer">AHRQ HCUP Statistical Brief 182, Medicaid and uninsured hospital stays</a>: $8,800 per uninsured stay, 2.0 million stays</li>
+        <li><a href="https://www.cdc.gov/nchs/products/databriefs/db38.htm" target="_blank" rel="noopener noreferrer">CDC NCHS, who used the emergency room</a>: ER use by insurance status</li>
+        <li>CMS T-MSIS "Acute Care Services Provided to the Medicaid and CHIP Population" file: Medicaid ER visits and hospital stays per 1,000 enrollees, 2018–2022</li>
+        <li><a href="https://cbo.gov/system/files/2025-08/61367-SNAP.pdf" target="_blank" rel="noopener noreferrer">CBO, Estimated effects of P.L. 119-21 on SNAP participation</a>: 2.4 million fewer in an average month</li>
+        <li><a href="https://cosm.aei.org/understanding-the-recent-declines-in-snap-participation/" target="_blank" rel="noopener noreferrer">AEI, Understanding the recent declines in SNAP participation</a>: observed 4.3 million drop</li>
+        <li><a href="https://www.news4jax.com/news/local/2026/07/23/millions-losing-snap-benefits-at-steepest-rate-in-nearly-30-years/" target="_blank" rel="noopener noreferrer">CBPP data via News4JAX, SNAP losses since the law</a>: 4.5 million</li>
+        <li><a href="https://www.kff.org/medicaid/allocating-cbos-estimates-of-federal-medicaid-spending-reductions-across-the-states-enacted-reconciliation-package/" target="_blank" rel="noopener noreferrer">KFF, CBO Medicaid reductions by state (enacted law)</a>: $911 billion over 10 years, mostly after 2029</li>
+        <li><a href="https://kffhealthnews.org/news/study-arkansas-medicaid-work-requirements-hit-those-already-employed/" target="_blank" rel="noopener noreferrer">KFF Health News, Arkansas Medicaid work requirement study</a>: 18% of those subject lost coverage</li>
+        <li><a href="https://www.cms.gov/newsroom/fact-sheets/medicaid-community-engagement-requirement-certain-individuals-interim-final-rule-comment-period-cms" target="_blank" rel="noopener noreferrer">CMS, Medicaid community engagement interim final rule</a></li>
+        <li><a href="https://ccf.georgetown.edu/2026/03/06/cms-releases-guidance-on-6-month-medicaid-renewals-for-expansion-adults/" target="_blank" rel="noopener noreferrer">Georgetown CCF, CMS guidance on six-month renewals</a></li>
+        <li><a href="https://ccf.georgetown.edu/2025/10/01/new-immigrant-eligibility-restrictions-coming-to-federally-funded-health-coverage/" target="_blank" rel="noopener noreferrer">Georgetown CCF, immigrant eligibility restrictions</a>: CBO uninsured estimates</li>
+        <li><a href="https://unduemedicaldebt.org/changes-to-the-aca-marketplace-for-plan-year-2027-what-you-need-to-know/" target="_blank" rel="noopener noreferrer">Undue Medical Debt, 2027 Marketplace changes</a>: HHS estimate of up to 2 million fewer enrollees</li>
+        <li><a href="https://www.moaa.org/content/publications-and-media/news-articles/2026-news-articles/finance/medicare-report-estimates-future-part-b-premiums.-what-will-you-pay-in-2027-and-beyond/" target="_blank" rel="noopener noreferrer">MOAA, 2026 Trustees Report Part B projection</a>: $209.50 a month</li>
+        <li><a href="https://www.newsweek.com/medicare-open-enrollment-started-3-major-changes-will-hit-seniors-in-2027-12595530" target="_blank" rel="noopener noreferrer">Newsweek, 2027 Medicare changes</a>: Part D cap, deductible and premium demonstration</li>
+        <li><a href="https://www.kff.org/state-health-policy-data/state-indicator/avg-monthly-participation/" target="_blank" rel="noopener noreferrer">KFF/USDA, SNAP participants by state, FY2025</a></li>
+        <li><a href="https://www.census.gov/data/tables/time-series/demo/popest/2020s-state-total.html" target="_blank" rel="noopener noreferrer">Census Bureau, state population estimates, July 2025</a></li>
+        <li><a href="https://ccf.georgetown.edu/2026/09/30/nebraska-releases-first-data-on-medicaid-work-reporting-requirement-as-expected-coverage-losses-start-to-mount-due-to-red-tape/" target="_blank" rel="noopener noreferrer">Georgetown CCF, Nebraska's first Medicaid work-requirement data (Sept 2026)</a>: coupled model check failure rates</li>
+        <li><a href="https://www.foodworldnews.com/articles/81705/20261021/snap-rolls-fell-more-5-million-nine-months-food-banks-report-rising-demand.htm" target="_blank" rel="noopener noreferrer">SNAP rolls fell by more than 5 million in nine months (USDA and CBPP data, Oct 2026)</a></li>
+        <li><a href="https://www.bls.gov/news.release/cpi.nr0.htm" target="_blank" rel="noopener noreferrer">BLS, Consumer Price Index, September 2026</a>: food at home, energy and hospital services prices</li>
+        <li><a href="https://www.dallasfed.org/research/economics/2026/0417" target="_blank" rel="noopener noreferrer">Dallas Fed, Implications of the Iran war for U.S. inflation</a>: oil-shock scenarios</li>
+        <li><a href="https://www.beckershospitalreview.com/finance/self-pay-hospital-visits-spike-as-coverage-losses-mount/" target="_blank" rel="noopener noreferrer">Becker's, Epic Research: self-pay hospital visits through Q2 2026</a></li>
+        <li><a href="https://www.beckershospitalreview.com/finance/self-pay-ed-visits-jumped-following-medicaid-redeterminations-study" target="_blank" rel="noopener noreferrer">Becker's, Epic Research: self-pay ER visits after the 2023 Medicaid unwinding</a></li>
+        <li><a href="https://www.hfma.org/accounting-and-financial-reporting/q3-2026-hospital-earnings-aca-medicaid/" target="_blank" rel="noopener noreferrer">HFMA, Q3 2026 hospital earnings</a>: uninsured share of admissions</li>
+        <li><a href="https://www.kff.org/quick-insights/aca-marketplace-enrollment-is-down-by-3-million-after-big-jump-in-premium-payments/" target="_blank" rel="noopener noreferrer">KFF, 2026 Marketplace enrollment down 3 million</a></li>
+        <li><a href="https://mdsoar.org/items/f0f5d978-106e-4933-b697-62a2c0512a45/full" target="_blank" rel="noopener noreferrer">Samuel, Szanton et al., SNAP and hospital use among older adults in Maryland (2018)</a>: odds ratios</li>
+        <li><a href="https://www.cbsnews.com/news/food-insecurity-us-purdue-university-usda/" target="_blank" rel="noopener noreferrer">CBS News, Purdue Consumer Food Insights food insecurity rates</a></li>
+        <li><a href="https://github.com/PublicaMundi/MappingAPI" target="_blank" rel="noopener noreferrer">PublicaMundi MappingAPI, U.S. state boundaries</a></li>
+      </ul>
+    </details>
+  </section>
+</div>
+
+  </main>
+  <script src="js/charts.js"></script>
+</body>
+</html>

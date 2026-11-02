@@ -1,0 +1,25 @@
+id,parameter,low,central,high,unit,basis
+proc_ne,Medicaid check failure: adults subject to work rules who are employed,6,14,26,% per check,"Nebraska 2026: ~27% of subject adults and 15% of all adults checked lost coverage at renewal, 92% for paperwork; centered lower because most states will match data ex parte under CMS's June 2026 rule"
+true_fail,Extra failure for subject adults not employed,30,50,70,% per check,Cannot show 80 hours; some qualify through school or community service
+ex_ratio,Failure for exempt adults as a share of the subject rate,15,27.5,40,%,Must still prove the exemption; Nebraska: 61% of those kept were exempt
+exempt0,Expansion adults exempt from work rules,40,50,60,%,"Parents of children 13 or younger, medically frail, students and others; Nebraska 2026"
+emp_ne,Employed share of subject adults,70,77.5,85,%,Nebraska: 97% of compliant adults met the income test
+snap_link,Higher Medicaid failure for people already cut from SNAP,1.2,1.6,2.0,multiplier,Same paperwork and hours under both programs
+reenroll,Monthly re-enrollment after losing Medicaid,2,4.5,9,% per month,Unwinding: about 1/3 re-enrolled within 90 days; under work rules a compliant month comes first
+other_cov,People losing Medicaid who find other coverage,5,15,25,%,Arkansas 2018: no measurable rise in other coverage
+snap_drop,Observed SNAP decline July 2025 to mid-2026,4.6,5.0,5.4,million people,USDA: 42.0M (July 2025) to 37.0M (April 2026); CBPP: more than 5M by June 2026
+snap_policy_share,Share of that decline caused by the law,45,65,85,%,Unemployment held near 4% while caseloads fell; some drop is other causes
+snap_add27,Further SNAP losses during 2027,0.1,0.35,0.6,million people,State admin cost share from Oct 2026 and remaining waivers ending
+or_snap,Odds of a hospital stay after losing SNAP (participation),1.00,1.04,1.075,odds ratio,"Samuel, Szanton et al. 2018: aOR 0.96 (0.93-0.99) for participating"
+or_per10,Added odds per $10 of monthly benefit lost (study prices),1.000,1.010,1.015,odds ratio,"Samuel, Szanton et al. 2018: aOR 0.99 per $10; benefit converted with food-at-home CPI (321.8 Sept 2026 vs ~226 in 2009-12)"
+or_ed,ER visits after losing SNAP,1.00,1.02,1.06,ratio,Same study found no significant ER effect
+ed_unins_ratio,ER visits by the newly uninsured vs when insured,55,72.5,90,%,"Epic Research, 2023 unwinding: Medicaid share of ER visits -2.8 pts while self-pay rose 2.4 pts"
+ip_unins_ratio,Hospital stays by the newly uninsured vs when insured,50,65,80,%,"Epic Research 2026: self-pay inpatient share 1.9% to 2.6%; HCA: uninsured 10.5% of admissions vs 8.5% a year earlier"
+u12,Unemployment rate Q4 2027,3.6,4.1,6.5,%,Fed Sept 2026 median 4.1 (participants 4.0-4.5) widened for the Fed's own forecast errors and oil-shock risk after the 2026 Iran war (energy CPI +20.4%)
+sep0,Monthly job loss among low-wage workers,2.0,2.75,3.5,% per month,Scaled up or down with the unemployment rate
+find0,Monthly job finding,15,22.5,30,% per month,Hiring weak: +29K payrolls in September 2026
+health_job,Chance a hospital stay leads to job loss,2,5,8,%,"Dobkin et al.: hospital admission cuts employment 11 points over 3 years"
+gap_given_jobloss,Low-income Marketplace workers in non-expansion states who fall into the coverage gap after a job loss,15,30,45,%,Yearly income drops below 100% of poverty; tax credit lost
+mkt_enroll,2026 Marketplace enrollment,17.5,18.4,19.2,million people,KFF: 19.2M effectuated Feb 2026; ~17.5M expected by year end
+pass_through,Uncompensated care passed on to commercial premiums,0,10,35,%,Studies find limited cost shifting; hospitals absorb most through margins and DSH and local funds
+rho,Links between inputs,0.6,0.65,0.7,correlation,Shared administrative-friction factor (Medicaid; SNAP; Marketplace) and economy factor (unemployment; job loss; job finding)

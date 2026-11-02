@@ -1,0 +1,27 @@
+id,parameter,low,central,high,unit,basis
+mcd_loss12,Expansion adults off Medicaid from work rules by Dec 2027,6,12,20,% of expansion adults,Arkansas 2018: 18% of those subject lost coverage in 7 months; CBO long run about 26% of expansion adults
+mcd_ramp6,Share of 12-month Medicaid losses reached by June 2027,35,47.5,60,%,CMS lets states start six-month renewals at each person's next renewal
+renew_loss12,Extra procedural losses from six-month renewals,1,2.5,4,% of expansion adults,Unwinding-era procedural disenrollment rates scaled to one extra renewal
+imm,Immigrants losing Medicaid/CHIP and Medicare (each),70000,100000,130000,people,CBO: about 100000 more uninsured from each restriction
+snap_off,People off SNAP because of the law in 2027,2400000,3000000,4000000,people,CBO 2.4M average month; observed caseload drop 4.3-4.5M since Jan 2025 only partly due to the law
+mkt_loss12,People losing Marketplace coverage or subsidy by Dec 2027,600000,1400000,2600000,people,HHS: up to 2M fewer enrollees from verification; CBO: about 900000 uninsured from immigrant rule
+ov_mcd_snap,Medicaid work-rule losers also off SNAP (removed as duplicates),25,35,45,%,Same adults face both work rules
+ov_jobs,Job losers already counted in another group,5,10,15,%,Assumption
+u12,Unemployment rate Q4 2027,4.0,4.1,4.5,%,Federal Reserve September 2026 projections (median 4.1; range 4.0-4.5); Sept 2026 actual 4.2%
+jobs_per_bn,Jobs lost per $1 billion of lost federal spending,7000,9250,11500,jobs,Commonwealth Fund/GWU IMPLAN: 1.22M jobs per $131B
+mcd_fed_per_adult,Federal Medicaid spending per expansion adult,5600,6650,7700,$ per year,90% federal share of typical expansion adult cost
+snap_benefit,Average SNAP benefit,185,190,195,$ per person per month,USDA FY2025-26 averages
+ptc_per_person,Average premium tax credit lost,4000,5250,6500,$ per year,Marketplace subsidy after enhanced credits expired
+mult_mcd,GDP lost per $1 of Medicaid spending cut,1.10,1.175,1.25,multiplier,Commonwealth Fund/GWU: $154B GDP per $131B cut (1.18)
+mult_snap,GDP lost per $1 of SNAP benefits cut,1.20,1.40,1.60,multiplier,USDA ERS and Moody's estimates for SNAP in a weak-to-normal economy
+mult_ptc,GDP lost per $1 of premium tax credit cut,1.00,1.10,1.20,multiplier,Assumption
+tax_share,State and local taxes lost per $1 of GDP lost,6.5,8.0,9.5,%,Commonwealth Fund/GWU: $12.2B per $154.3B (7.9%)
+unins_share,Coverage losers who stay uninsured,70,82.5,95,%,Arkansas 2018: no rise in other coverage among those who lost Medicaid
+ed_rate,ER visits per newly uninsured person,0.40,0.55,0.70,visits per year,Medicaid adults about 0.99 a year (T-MSIS 2022 acute care data); uninsured adults use the ER less (CDC NHIS)
+ed_cost,Hospital cost per ER visit,700,825,950,$ per visit,"HCUP 2021: $610 for uninsured/self-pay treat-and-release visits, inflated to 2027"
+ip_rate,Hospital stays per newly uninsured person,0.035,0.0475,0.060,stays per year,HCUP 2012: about 2.0M uninsured stays for about 47M uninsured people
+ip_cost,Hospital cost per inpatient stay,12000,14000,16000,$ per stay,"HCUP 2012: $8,800 per uninsured stay, inflated to 2027"
+unpaid_share,Share of that hospital cost never paid,75,82.5,90,%,Self-pay patients pay a small fraction of hospital bills; the rest is uncompensated care
+oop_per_uninsured,New out-of-pocket costs per newly uninsured person,500,900,1300,$ per year,Assumption from MEPS spending of uninsured adults
+partb_rise,Part B premium increase,5.5,6.6,8.0,$ per month,2026 Trustees projection $202.90 to $209.50; 54-58M people pay it themselves
+partd,Part D changes,85,85,300,$ per person,$85 higher deductible for 10-18M people; $300 higher cap for 1.3-2.4M; stand-alone premiums +$3-10 a month for 17-21M
