@@ -1,3 +1,4 @@
+/* Forecast and coupled model pages: charts, tables and figures. Uses d3 v7 and js/dash-shim.js. */
 /* Charts, tables and figures for the forecast dashboard. Uses d3 v7 and js/dash-shim.js. */
 window.fcCompact = (v, isMoney) => {
     const n = Number(v);
@@ -275,10 +276,15 @@ window.fcCompact = (v, isMoney) => {
     const vals = s.data.map((r) => +r.per10k_12m);
     const lo = d3.min(vals), hi = d3.max(vals);
     // multi-hue ramp: pale yellow to deep red on light pages, deep purple to bright yellow on dark pages
-    const bg = d3.hsl(fcResolve(el, 'var(--color-panel)'));
-    const dark = bg.l < 0.5;
-    const t = d3.scaleLinear([lo, hi], dark ? [0.28, 0.97] : [0.08, 0.95]).clamp(true);
-    const color = (v) => (dark ? d3.interpolateInferno : d3.interpolateYlOrRd)(t(v));
+    const rgb = (fcResolve(el, 'var(--color-panel)').match(/[\d.]+/g) || [255, 255, 255]).map(Number);
+    const dark = (0.299 * rgb[0] + 0.587 * rgb[1] + 0.114 * rgb[2]) < 128;
+    const stops = dark ? ['#3b0f70', '#8c2981', '#de4968', '#fe9f6d', '#fcfdbf'] : ['#fff3b0', '#fdc35f', '#fb8b3c', '#e3322b', '#8f0b2e'];
+    const ramp = (k) => {
+      const p = Math.max(0, Math.min(1, k)) * (stops.length - 1), i = Math.min(stops.length - 2, Math.floor(p));
+      return d3.interpolateRgb(stops[i], stops[i + 1])(p - i);
+    };
+    const t = d3.scaleLinear([lo, hi], [0, 1]).clamp(true);
+    const color = (v) => ramp(t(v));
     const svg = d3.select(el).append('svg').attr('viewBox', '0 0 960 500').attr('width', '100%').attr('role', 'img').attr('aria-label', 'Map of people affected per 10,000 residents by state, end of 2027');
     const tip = fcTip(el);
     svg.append('g').selectAll('path').data(g.data.filter((d) => by.has(d.abbr))).join('path')
