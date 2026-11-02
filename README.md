@@ -1,4 +1,4 @@
-# 2027 Coverage, SNAP and Jobs Impact Forecast
+# Medicare, Medicaid and SNAP: Enrollment and 2027 Forecast
 
 A scenario forecast of how many people lose Medicaid, SNAP, Medicare or Marketplace help, or a job tied to those cuts, in 2027, and what that costs the economy, households and hospitals at 6 months (January–June 2027) and 12 months (calendar 2027). Results are national and by state, with 95% intervals.
 
@@ -19,7 +19,13 @@ A scenario forecast of how many people lose Medicaid, SNAP, Medicare or Marketpl
 
 The dashboard is a static page: `index.html` plus the CSV and JSON files in `data/`. It loads d3 v7 from cdnjs and fonts from Google Fonts. To run it on your own computer, start a small web server in this folder (`python3 -m http.server 8000`) and open http://localhost:8000.
 
-The page shows two models side by side: the first forecast, which treats each group separately (20,000 scenarios), and a coupled monthly model that links Medicaid, SNAP, jobs and hospital use (10,000 scenarios).
+The page has three tabs:
+
+- **Enrollment and SNAP overlap:** heat maps of Medicare only, dual enrollees, Medicaid/CHIP only and Medicare Advantage as shares of state population, a table for every state (with Medicaid children and adults), and the SNAP and health coverage overlap model with a 95% interval.
+- **2027 forecast:** the first model, which treats each group separately (20,000 scenarios): people affected, dollars, hospital and ER costs, jobs, and results by state.
+- **Coupled model:** a monthly model that links Medicaid, SNAP, jobs and hospital use (10,000 scenarios), compared with the first model.
+
+Add `#enrollment`, `#forecast` or `#coupled-model` to the address to open a tab directly.
 
 ## Rerun the model
 

@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>2027 Coverage, SNAP and Jobs Impact Forecast</title>
-  <meta name="description" content="Scenario forecast of people losing Medicaid, SNAP, Medicare or Marketplace help or jobs in 2027, and the financial and economic impact at 6 and 12 months, by state.">
+  <title>Medicare, Medicaid and SNAP: Enrollment and 2027 Forecast</title>
+  <meta name="description" content="Medicare, Medicaid and SNAP enrollment by state, and a scenario forecast of 2027 coverage, SNAP and job losses with their economic impact.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Source+Serif+4:opsz,wght@8..60,400&display=swap">
@@ -15,9 +15,213 @@
 </head>
 <body>
   <main id="dash-root">
+<div class="fx">
+  <header class="fx-head">
+    <h1 class="fx-title">Medicare, Medicaid and SNAP: enrollment and the 2027 forecast</h1>
+    <div class="fx-tabs" role="tablist" aria-label="Dashboard pages">
+      <button type="button" class="fx-tab" role="tab" data-tab="enrollment" aria-controls="enrollment" aria-selected="true">Enrollment and SNAP overlap</button>
+      <button type="button" class="fx-tab" role="tab" data-tab="forecast" aria-controls="forecast" aria-selected="false">2027 forecast</button>
+      <button type="button" class="fx-tab" role="tab" data-tab="coupled-model" aria-controls="coupled-model" aria-selected="false">Coupled model</button>
+    </div>
+  </header>
+
+  <section class="fx-page" id="enrollment" role="tabpanel">
+<div class="hm">
+  <header>
+    <h2 class="hm-title">Medicare and Medicaid enrollment by state</h2>
+    <p class="hm-take">Counting each person once, <b data-draw="hmnat" data-source="hm_national" data-row="0" data-field="any_pct">—</b> of U.S. residents are covered by Medicare, Medicaid or CHIP: <b data-draw="hmnat" data-source="hm_national" data-row="0" data-field="medicare_only_pct">—</b> by Medicare only, <b data-draw="hmnat" data-source="hm_national" data-row="0" data-field="dual_pct">—</b> by both programs, and <b data-draw="hmnat" data-source="hm_national" data-row="0" data-field="medicaid_only_pct">—</b> by Medicaid or CHIP only. Dual enrollment is highest in <b data-draw="hmnat" data-source="hm_national" data-row="0" data-field="dual_high_state">—</b> (<b data-draw="hmnat" data-source="hm_national" data-row="0" data-field="dual_high_pct">—</b>) and lowest in <b data-draw="hmnat" data-source="hm_national" data-row="0" data-field="dual_low_state">—</b> (<b data-draw="hmnat" data-source="hm_national" data-row="0" data-field="dual_low_pct">—</b>). Medicare Advantage covers <b data-draw="hmnat" data-source="hm_national" data-row="0" data-field="ma_pct">—</b> of residents, from <b data-draw="hmnat" data-source="hm_national" data-row="0" data-field="ma_low_pct">—</b> in <b data-draw="hmnat" data-source="hm_national" data-row="0" data-field="ma_low_state">—</b> to <b data-draw="hmnat" data-source="hm_national" data-row="0" data-field="ma_high_pct">—</b> in <b data-draw="hmnat" data-source="hm_national" data-row="0" data-field="ma_high_state">—</b>.</p>
+  </header>
+
+  <section>
+    <h2 class="hm-h">Who is covered, each person counted once</h2>
+    <div class="hm-grid">
+      <section class="hm-card" id="medicare-map">
+        <h2>Medicare only</h2>
+        <p class="hm-note">Medicare enrollees who are not also on Medicaid, as a share of state population. Darker states have a larger share. Hover a state for its numbers.</p>
+        <div class="hm-map" data-draw="hmmap" data-metric="medicare_only_pct" data-count="medicare_only" data-label="on Medicare only" data-color="0" data-source="shares shapes"></div>
+      </section>
+
+      <section class="hm-card" id="dual-map">
+        <h2>Dual enrollees: Medicare and Medicaid</h2>
+        <p class="hm-note">People enrolled in both programs, as a share of state population. Includes full-benefit duals and partial-benefit duals, whose Medicaid helps pay Medicare premiums and cost sharing.</p>
+        <div class="hm-map" data-draw="hmmap" data-metric="dual_pct" data-count="total_duals" data-label="dual enrollees" data-color="2" data-source="shares shapes"></div>
+      </section>
+
+      <section class="hm-card" id="medicaid-map">
+        <h2>Medicaid or CHIP only</h2>
+        <p class="hm-note">Medicaid and CHIP enrollees who are not also on Medicare, as a share of state population. Darker states have a larger share.</p>
+        <div class="hm-map" data-draw="hmmap" data-metric="medicaid_only_pct" data-count="medicaid_only" data-label="on Medicaid or CHIP only" data-color="1" data-source="shares shapes"></div>
+      </section>
+
+      <section class="hm-card" id="ma-map">
+        <h2>Medicare Advantage</h2>
+        <p class="hm-note">People in Medicare Advantage and other private Medicare health plans (October 2026), as a share of state population. These people are part of the Medicare and dual groups, not an extra group.</p>
+        <div class="hm-map" data-draw="hmmap" data-metric="ma_pct" data-count="ma_enrollees" data-label="in Medicare Advantage" data-color="3" data-source="shares shapes"></div>
+      </section>
+    </div>
+  </section>
+
+  <section class="hm-card" id="hm-state-table">
+    <h2>Every state</h2>
+    <p class="hm-note">The same figures as the maps, including small states that are hard to see there. Each share is of the state's resident population. Total covered adds Medicare only, dual enrollees and Medicaid/CHIP only, so each person is counted once; Medicare Advantage is not added again because those people are already in the Medicare and dual groups. The children and adults columns split all Medicaid and CHIP enrollees (June 2026), including full-benefit duals, so they add up to Medicaid and CHIP enrollment rather than to the "only" column; adults include seniors and people with disabilities as well as expansion adults.</p>
+    <div class="hm-tablewrap">
+      <table data-source="shares" data-row-key="state">
+        <thead>
+          <tr>
+            <th data-field="state">State</th>
+            <th data-field="population" class="hide-narrow">Population</th>
+            <th data-field="medicare_only" class="hide-narrow">Medicare only</th>
+            <th data-field="medicare_only_pct">Medicare only share</th>
+            <th data-field="total_duals" class="hide-narrow">Dual enrollees</th>
+            <th data-field="dual_pct">Dual share</th>
+            <th data-field="medicaid_only" class="hide-narrow">Medicaid/CHIP only</th>
+            <th data-field="medicaid_only_pct">Medicaid/CHIP only share</th>
+            <th data-field="medicaid_children" class="hide-narrow">Medicaid/CHIP children</th>
+            <th data-field="medicaid_adults" class="hide-narrow">Medicaid/CHIP adults</th>
+            <th data-field="child_share_pct">Children's share of Medicaid/CHIP</th>
+            <th data-field="ma_enrollees" class="hide-narrow">Medicare Advantage</th>
+            <th data-field="ma_pct">Medicare Advantage share</th>
+            <th data-field="total_covered" class="hide-narrow">Total covered</th>
+            <th data-field="total_pct">Total share of population</th>
+          </tr>
+        </thead>
+        <tbody data-draw="hmtable" data-source="shares"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="snap-overlap">
+    <h2 class="hm-h">SNAP losses that overlap 2027 Medicare and Medicaid changes</h2>
+    <div class="hm-grid">
+      <section class="hm-card" id="snap-map">
+        <h2>People likely to lose SNAP who also face 2027 Medicare or Medicaid changes</h2>
+        <p class="hm-note">Modeled median per 10,000 residents, with a 95% interval (2.5th to 97.5th percentile of 20,000 simulated scenarios). Darker states have more people in both groups. Hover a state for the count and its 95% interval.</p>
+        <div class="hm-map" data-draw="snapmap" data-source="snapx shapes"></div>
+      </section>
+      <section class="hm-card" id="snap-all-map">
+        <h2>For comparison: all SNAP recipients</h2>
+        <p class="hm-note">Average monthly SNAP recipients in FY2025 (October 2024 to September 2025, before the new work rules) as a share of state population. Hover a state for the count and how much of it the overlap group above represents.</p>
+        <div class="hm-map" data-draw="snapallmap" data-source="snapx shapes"></div>
+      </section>
+      <section class="hm-card" id="snap-summary">
+        <h2>National estimate</h2>
+        <p class="hm-take">About <b data-draw="snapnat" data-source="snapnat" data-row="0" data-field="median">—</b> people (95% interval <b data-draw="snapnat" data-source="snapnat" data-row="0" data-field="low_2_5th">—</b> to <b data-draw="snapnat" data-source="snapnat" data-row="0" data-field="high_97_5th">—</b>) are likely to lose SNAP and also face a 2027 Medicare or Medicaid change. By group: <b data-draw="snapnat" data-source="snapnat" data-row="0" data-field="older_adults">—</b> adults 55–64 and <b data-draw="snapnat" data-source="snapnat" data-row="0" data-field="parents">—</b> parents of teens facing both SNAP and Medicaid work rules; <b data-draw="snapnat" data-source="snapnat" data-row="0" data-field="children">—</b> children in those parents' households; and <b data-draw="snapnat" data-source="snapnat" data-row="0" data-field="duals">—</b> dual enrollees, who are exempt from work rules but face Medicare cost changes.</p>
+        <p class="hm-take">For scale, <b data-draw="snaptot" data-source="snaptot" data-row="0" data-field="snap_all">—</b> people received SNAP in an average month of FY2025 (<b data-draw="snaptot" data-source="snaptot" data-row="0" data-field="snap_pct_pop">—</b> of residents). The overlap group is about <b data-draw="snaptot" data-source="snaptot" data-row="0" data-field="overlap_pct_snap">—</b> of all recipients.</p>
+        <ul class="hm-notes">
+          <li>Adults and parents are counted only where Medicaid work rules apply, so non-expansion states such as Texas and Florida rank low even where SNAP losses are large.</li>
+          <li>Dual enrollees are the low-probability tier: about 1–5% of duals on SNAP are assumed to lose it, mainly through churn and state cuts.</li>
+          <li>The 95% interval means 95% of the simulated outcomes fall inside it, given the assumed ranges for the model's rates. It reflects uncertainty in those rates, not survey sampling error, so it is an uncertainty interval for the model rather than a statistical confidence interval from a sample. State intervals move together, and the national interval comes from the same simulation, not from adding state intervals.</li>
+        </ul>
+      </section>
+    </div>
+    <section class="hm-card" id="snap-table">
+      <h2>SNAP and health coverage overlap by state</h2>
+      <p class="hm-note">Modeled medians by group, then the total with its 95% interval (2.5th–97.5th percentile). Groups may not add exactly to the total because each is a separate median.</p>
+      <div class="hm-tablewrap">
+        <table data-source="snapx" data-row-key="state">
+          <thead>
+            <tr>
+              <th data-field="state">State</th>
+              <th data-field="snap_all" class="hide-narrow">All SNAP recipients (FY2025)</th>
+              <th data-field="snap_pct_pop">SNAP share of residents</th>
+              <th data-field="older_adults" class="hide-narrow">Adults 55–64</th>
+              <th data-field="parents" class="hide-narrow">Parents of teens</th>
+              <th data-field="children" class="hide-narrow">Children</th>
+              <th data-field="duals" class="hide-narrow">Dual enrollees</th>
+              <th data-field="total_mid">Total (median)</th>
+              <th data-field="range_label">95% interval</th>
+              <th data-field="per10k_mid">Per 10,000 residents</th>
+              <th data-field="overlap_pct_snap">Share of SNAP recipients</th>
+            </tr>
+          </thead>
+          <tbody data-draw="snaptable" data-source="snapx"></tbody>
+        </table>
+      </div>
+    </section>
+  </section>
+
+  <section class="hm-card" id="hm-method">
+    <h2>How these are counted</h2>
+    <ul>
+      <li>"Using the program" means enrolled. Enrollment counts people with coverage, whether or not they used care.</li>
+      <li>Medicare only is total Medicare enrollment minus all dual enrollees. Medicaid or CHIP only is Medicaid and CHIP enrollment minus full-benefit dual enrollees, because CMS's Medicaid count includes only people with full Medicaid benefits and leaves out partial-benefit duals.</li>
+      <li>Dual enrollees are from CMS Medicare enrollment data for early 2026, as published by KFF. Medicare Advantage is from CMS's October 2026 contract, plan, state and county report and includes PACE and cost plans; plan counts of 10 or fewer in a county are suppressed in that file and counted as zero.</li>
+      <li>The years differ. Total Medicare by state is 2024 (the latest year KFF publishes), Medicaid and CHIP is June 2026, and population is the Census Bureau's July 2025 estimate. Because Medicare enrollment has grown since 2024, the Medicare-only share is likely a little low.</li>
+      <li>Puerto Rico and other territories are left out. Alaska and Hawaii are moved and resized to fit.</li>
+      <li>Each map's color scale runs from its own lowest to highest state, so compare shades within a map, not across maps.</li>
+      <li>SNAP overlap is a model, not a count. It starts from CBPP's state estimates of adults 55–64 and parents of school-age children newly subject to SNAP work rules (FY2022 data), then applies uncertain national rates: 30–48% of those parents have a youngest child 14 or older; 18–50% of people newly subject lose SNAP (Arkansas's 2018 Medicaid experience to CBO's estimate); 65–85% of older adults and 35–65% of parents in expansion states are expansion adults also facing Medicaid work rules (0–10% in non-expansion states); 15–40% of the children in those households leave SNAP with the parent; and 40–55% of dual enrollees are on SNAP, of whom 1–5% lose it. Each range is a stated assumption, not a published rate.</li>
+    </ul>
+  </section>
+
+  <details class="hm-card hm-sources" id="hm-sources">
+    <summary>Sources</summary>
+    <p class="hm-note">Every dataset used on this page. Links open the original source.</p>
+    <ul class="hm-srclist">
+      <li>
+        <a href="https://www.census.gov/data/tables/time-series/demo/popest/2020s-state-total.html" target="_blank" rel="noopener noreferrer">State population totals, 2020–2025</a>
+        <span class="src-meta">U.S. Census Bureau · Vintage 2025 estimates, July 1, 2025 · used for every share on the page</span>
+      </li>
+      <li>
+        <a href="https://www.kff.org/medicare/state-indicator/total-medicare-beneficiaries/" target="_blank" rel="noopener noreferrer">Total number of Medicare beneficiaries</a>
+        <span class="src-meta">KFF State Health Facts, from CMS Medicare enrollment data · 2024 · Medicare only</span>
+      </li>
+      <li>
+        <a href="https://www.kff.org/medicaid/state-indicator/medicaid-and-chip-monthly-enrollment/" target="_blank" rel="noopener noreferrer">Medicaid and CHIP monthly enrollment</a>
+        <span class="src-meta">KFF State Health Facts, from CMS data · June 2026 · Medicaid or CHIP only</span>
+      </li>
+      <li>
+        <a href="https://www.medicaid.gov/medicaid/national-medicaid-chip-program-information/medicaid-chip-enrollment-data/october-2025-medicaid-chip-enrollment-data-highlights" target="_blank" rel="noopener noreferrer">Medicaid and CHIP enrollment data highlights</a>
+        <span class="src-meta">CMS, Medicaid.gov · June 2026 · national Medicaid and CHIP totals</span>
+      </li>
+      <li>
+        <a href="https://www.medicaid.gov/resources-for-states/downloads/eligib-oper-and-enrol-snap-jun2026.pdf" target="_blank" rel="noopener noreferrer">Medicaid and CHIP Eligibility Operations and Enrollment Snapshot, June 2026</a>
+        <span class="src-meta">CMS, Medicaid.gov · June 2026 · children and adults by state</span>
+      </li>
+      <li>
+        <a href="https://www.kff.org/state-health-policy-data/state-indicator/number-of-dual-eligible-individuals/" target="_blank" rel="noopener noreferrer">Number of dual-eligible individuals</a>
+        <span class="src-meta">KFF State Health Facts, from CMS Medicare Monthly Enrollment · 2026 · dual enrollees, full and partial benefit</span>
+      </li>
+      <li>
+        <a href="https://www.cms.gov/data-research/statistics-trends-and-reports/medicare-advantagepart-d-contract-and-enrollment-data/monthly-enrollment-contract/plan/state/county" target="_blank" rel="noopener noreferrer">Monthly enrollment by contract, plan, state and county</a>
+        <span class="src-meta">CMS · October 2026 file · Medicare Advantage</span>
+      </li>
+      <li>
+        <a href="https://www.cbpp.org/sites/default/files/4-30-25fa.pdf" target="_blank" rel="noopener noreferrer">Worsening SNAP's harsh work requirement (state estimates of adults newly subject)</a>
+        <span class="src-meta">Center on Budget and Policy Priorities · April 30, 2025, from FY2022 SNAP quality control data · SNAP overlap model base counts</span>
+      </li>
+      <li>
+        <a href="https://www.kff.org/state-health-policy-data/state-indicator/avg-monthly-participation/" target="_blank" rel="noopener noreferrer">Monthly average SNAP participants by state</a>
+        <span class="src-meta">KFF State Health Facts, from USDA FNS · FY2025 · SNAP context</span>
+      </li>
+      <li>
+        <a href="https://www.nawdp.org/news/usda-updates-snap-abawd-rules-under-one-big-beautiful-bill-effective-november-2025/" target="_blank" rel="noopener noreferrer">USDA SNAP work rule changes under the 2025 law</a>
+        <span class="src-meta">NAWDP summary of USDA memos · effective November 1, 2025 · ages 55–64 and parents of children 14+ newly subject</span>
+      </li>
+      <li>
+        <a href="https://cosm.aei.org/understanding-the-recent-declines-in-snap-participation/" target="_blank" rel="noopener noreferrer">Understanding the recent declines in SNAP participation</a>
+        <span class="src-meta">AEI · CBO's 2.4 million average-month estimate and 2.6 million newly subject · model calibration</span>
+      </li>
+      <li>
+        <a href="https://kffhealthnews.org/news/study-arkansas-medicaid-work-requirements-hit-those-already-employed/" target="_blank" rel="noopener noreferrer">Arkansas Medicaid work requirement study</a>
+        <span class="src-meta">KFF Health News on Sommers et al. · 18% of those subject lost coverage · model's low-end loss rate</span>
+      </li>
+      <li>
+        <a href="https://healthyfoodaccess.org/wp-content/uploads/2024/03/Access-to-Public-Benefits-among-Dual-Eligible-Seniors.pdf" target="_blank" rel="noopener noreferrer">Access to public benefits among dual-eligible seniors</a>
+        <span class="src-meta">Maryland linked data, 2012 · 47% of dual-eligible seniors on SNAP · dual enrollee tier</span>
+      </li>
+      <li>
+        <a href="https://github.com/PublicaMundi/MappingAPI" target="_blank" rel="noopener noreferrer">U.S. state boundaries (us-states GeoJSON)</a>
+        <span class="src-meta">PublicaMundi MappingAPI on GitHub · state outlines used to draw the maps</span>
+      </li>
+    </ul>
+  </details>
+</div>
+  </section>
+
+  <section class="fx-page" id="forecast" role="tabpanel" hidden>
 <div class="fc">
   <header>
-    <h1 class="fc-title">2027 coverage, SNAP and jobs impact forecast</h1>
+    <h2 class="fc-title">2027 coverage, SNAP and jobs impact forecast</h2>
     <p class="fc-take">By the end of June 2027, about <b data-draw="nat" data-source="national" data-where="metric_id=people&amp;months=6" data-field="median">—</b> people are forecast to have lost Medicaid, SNAP, Medicare or Marketplace help, or a job tied to the cuts, counting each person once. By the end of 2027 that rises to <b data-draw="nat" data-source="national" data-where="metric_id=people&amp;months=12" data-field="median">—</b> (95% interval <b data-draw="nat" data-source="national" data-where="metric_id=people&amp;months=12" data-field="low">—</b> to <b data-draw="nat" data-source="national" data-where="metric_id=people&amp;months=12" data-field="high">—</b>), with about <b data-draw="nat" data-source="national" data-where="metric_id=gdp_loss&amp;months=12" data-field="median">—</b> in lost economic output over the year.</p>
   </header>
 
@@ -100,126 +304,6 @@
       </table>
     </div>
     <p class="fc-note">Unpaid care becomes uncompensated care: hospitals absorb it, then pass part of it on through higher prices for insured patients and draw on state and local funds. It falls hardest on safety-net hospitals in states with many expansion adults. People counts are as of the end of each period; visits, stays and dollars are totals over the period.</p>
-  </section>
-
-  <section class="fc-card" id="coupled">
-    <h2>Coupled model: how the losses feed each other in 2027</h2>
-    <p class="fc-note">A second model follows Medicaid expansion adults month by month, tracking Medicaid, SNAP, work and hospital use together instead of treating each group on its own. Its levels come from 2026 data: SNAP caseloads through mid-2026, Nebraska's first Medicaid work-requirement results, the Federal Reserve's September 2026 outlook after the oil shock, September 2026 prices, 2026 Marketplace enrollment and 2026 hospital payer data. Older studies supply only relative effects, such as how much the odds of a hospital stay change when SNAP is cut.</p>
-    <div class="fc-tiles">
-      <div class="fc-tile acc-all">
-        <span class="lab">People affected by Dec 31, 2027, coupled model</span>
-        <span class="big" data-draw="cpl" data-source="coupled" data-where="metric_id=people&amp;months=12" data-field="median">—</span>
-        <span class="rng" data-draw="cplrange" data-source="coupled" data-where="metric_id=people&amp;months=12">—</span>
-      </div>
-      <div class="fc-tile acc-mcd">
-        <span class="lab">Off Medicaid because of the new rules, Dec 31</span>
-        <span class="big" data-draw="cpl" data-source="coupled" data-where="metric_id=mcd_net&amp;months=12" data-field="median">—</span>
-        <span class="rng" data-draw="cplrange" data-source="coupled" data-where="metric_id=mcd_net&amp;months=12">—</span>
-      </div>
-      <div class="fc-tile acc-hosp">
-        <span class="lab">Hospital and ER care for the newly uninsured, 12 months</span>
-        <span class="big" data-draw="cpl" data-source="coupled" data-where="metric_id=hosp_er_cost&amp;months=12" data-field="median">—</span>
-        <span class="rng" data-draw="cplrange" data-source="coupled" data-where="metric_id=hosp_er_cost&amp;months=12">—</span>
-      </div>
-      <div class="fc-tile acc-snap">
-        <span class="lab">Extra hospital stays linked to losing SNAP, 12 months</span>
-        <span class="big" data-draw="cpl" data-source="coupled" data-where="metric_id=cascade_stays&amp;months=12" data-field="median">—</span>
-        <span class="rng" data-draw="cplrange" data-source="coupled" data-where="metric_id=cascade_stays&amp;months=12">—</span>
-      </div>
-    </div>
-
-    <div class="fc-grid" style="margin-top: var(--cds-gap-lg)">
-      <div>
-        <h2 class="fc-h" id="h-cpl-medicaid">Medicaid losses month by month</h2>
-        <p class="fc-note">People off Medicaid because of the new rules at the end of each month, compared with a no-new-rules run (annual renewals, normal churn). The band is the 95% interval. The gap between "ever lost" and "off at month end" is people who re-enrolled. By June 30 the chain reaches <b data-draw="cplshare" data-source="coupled_timeline">—</b> of its December total; the first model assumed 35–60%.</p>
-        <div class="fc-chart" data-draw="cpltimeline" data-source="coupled_timeline"></div>
-      </div>
-      <div>
-        <h2 class="fc-h" id="h-cpl-findings">What coupling changes</h2>
-        <ul>
-          <li><b>SNAP is larger.</b> Anchored to the observed fall of about 5 million since July 2025, the model counts <b data-draw="cpl" data-source="coupled" data-where="metric_id=snap_total&amp;months=12" data-field="median">—</b> off SNAP because of the law, higher than the first model, which started from CBO's estimate.</li>
-          <li><b>Medicaid losses are smaller.</b> Re-enrollment and the no-new-rules comparison bring Medicaid losses to <b data-draw="cpl" data-source="coupled" data-where="metric_id=mcd_net&amp;months=12" data-field="median">—</b> at year end; <b data-draw="cpl" data-source="coupled" data-where="metric_id=mcd_ever&amp;months=12" data-field="median">—</b> lose coverage at some point.</li>
-          <li><b>The overlap comes out of the chain.</b> <b data-draw="cpl" data-source="coupled" data-where="metric_id=mcd_overlap&amp;months=12" data-field="median">—</b> people lose both Medicaid and SNAP, counted once.</li>
-          <li><b>Hospital costs are higher.</b> 2023 unwinding data show people keep going to the ER after losing Medicaid, so uninsured hospital and ER care comes to <b data-draw="cpl" data-source="coupled" data-where="metric_id=hosp_er_cost&amp;months=12" data-field="median">—</b>, of which <b data-draw="cpl" data-source="coupled" data-where="metric_id=uncomp_care&amp;months=12" data-field="median">—</b> goes unpaid.</li>
-          <li><b>The health cascade is real but modest.</b> Losing SNAP adds about <b data-draw="cpl" data-source="coupled" data-where="metric_id=cascade_stays&amp;months=12" data-field="median">—</b> hospital stays costing <b data-draw="cpl" data-source="coupled" data-where="metric_id=cascade_cost&amp;months=12" data-field="median">—</b>, and about <b data-draw="cpl" data-source="coupled" data-where="metric_id=health_jobs&amp;months=12" data-field="median">—</b> jobs lost after those stays.</li>
-          <li><b>The coverage gap depends on the economy.</b> In the 10 non-expansion states it is close to zero unless unemployment rises; in the worst 2.5% of scenarios it reaches <b data-draw="cpl" data-source="coupled" data-where="metric_id=gap&amp;months=12" data-field="high">—</b>.</li>
-          <li><b>Costs passed to commercial premiums are small.</b> About <b data-draw="cpl" data-source="coupled" data-where="metric_id=cost_shift&amp;months=12" data-field="median">—</b> over the year, roughly <b data-draw="cpl" data-source="coupled" data-where="metric_id=cost_shift_per_person&amp;months=12" data-field="median">—</b> per commercially insured person.</li>
-          <li><b>Linked inputs widen the interval.</b> With the shared friction and economy factors, the 12-month interval is <b data-draw="cplwidth" data-source="coupled">—</b> wider than with every input drawn separately.</li>
-        </ul>
-      </div>
-    </div>
-
-    <h2 class="fc-h" id="h-cpl-compare" style="margin-top: var(--cds-gap-lg)">First model vs coupled model, 12 months</h2>
-    <p class="fc-note">Medians, with the coupled model's 95% interval and the interval it would have if its inputs were drawn independently.</p>
-    <div class="fc-tablewrap">
-      <table data-source="cpl_compare" data-row-key="measure_id">
-        <thead>
-          <tr>
-            <th data-field="measure">Measure</th>
-            <th data-field="independent">First model</th>
-            <th data-field="coupled">Coupled model</th>
-            <th data-field="coupled_low" class="hide-narrow">Coupled 95% low</th>
-            <th data-field="coupled_high" class="hide-narrow">Coupled 95% high</th>
-            <th data-field="unlinked_low" class="hide-narrow">Unlinked 95% low</th>
-            <th data-field="unlinked_high" class="hide-narrow">Unlinked 95% high</th>
-          </tr>
-        </thead>
-        <tbody data-draw="cplcompare" data-source="cpl_compare"></tbody>
-      </table>
-    </div>
-
-    <details style="margin-top: var(--cds-gap-lg)">
-      <summary>How the coupled model works</summary>
-      <ol style="margin-top: var(--cds-gap-md)">
-        <li><b>A monthly chain for the 20.4 million expansion adults.</b> Each person is in one of 48 combined states: Medicaid, uninsured or other coverage; never on SNAP, on SNAP, recently cut or cut; employed or not; subject to work rules or exempt.</li>
-        <li><b>Checks drive Medicaid losses.</b> Each person's first check comes at their next annual renewal, then every six months. Failure rates are set from Nebraska's 2026 results, are higher for adults not employed and for people already cut from SNAP, and lower for exempt adults. People can re-enroll after showing a compliant month. A second run without the new rules is subtracted.</li>
-        <li><b>SNAP losses</b> are anchored to the fall observed since July 2025, with the share caused by the law as a range, plus further 2027 losses. Inside the chain, adults not working lose SNAP under the time limit.</li>
-        <li><b>Losing SNAP raises the odds of a hospital stay</b> on a logistic scale: an odds ratio for losing participation times an odds ratio per $10 of benefit, converted from 2026 prices to the study's prices, building up over three months.</li>
-        <li><b>Jobs and coverage are linked.</b> Job loss and finding rates follow the unemployment path; a hospital stay can lead to job loss; not working raises the chance of failing the Medicaid check; in non-expansion states a job loss can push low-income Marketplace enrollees below 100% of poverty.</li>
-        <li><b>Hospital care for the newly uninsured</b> uses ER and stay rates relative to insured adults from 2023–2026 payer data, at 2027 hospital costs; part of the unpaid cost may pass to commercial premiums.</li>
-        <li><b>Inputs move together.</b> One shared factor links Medicaid, SNAP and Marketplace losses (state paperwork and verification), another links unemployment, job loss and hiring. 10,000 scenarios; 95% intervals are the 2.5th to 97.5th percentiles.</li>
-      </ol>
-      <div class="fc-tablewrap" style="margin-top: var(--cds-gap-md)">
-        <table data-source="coupled_inputs" data-row-key="id">
-          <thead>
-            <tr>
-              <th data-field="parameter">Input</th>
-              <th data-field="low">Low</th>
-              <th data-field="central">Central</th>
-              <th data-field="high">High</th>
-              <th data-field="unit">Unit</th>
-              <th data-field="basis">Basis</th>
-            </tr>
-          </thead>
-          <tbody data-draw="cplinputs" data-source="coupled_inputs"></tbody>
-        </table>
-      </div>
-      <ul class="small" style="margin-top: var(--cds-gap-md)">
-        <li>Nebraska's figures are from an early rollout before CMS's June 2026 rule, so the central failure rate is set below them; states with strong data matching could see fewer losses.</li>
-        <li>The SNAP and hospital-stay link comes from a study of adults 65 and older (2009–12); most people cut from SNAP in 2027 are younger, so the range includes no effect.</li>
-        <li>The model has no individual records; the joint states are built from state totals and published shares.</li>
-      </ul>
-    </details>
-
-    <details style="margin-top: var(--cds-gap-md)">
-      <summary>Coupled model by state</summary>
-      <div class="fc-tablewrap" style="margin-top: var(--cds-gap-md)">
-        <table data-source="coupled_states" data-row-key="state">
-          <thead>
-            <tr>
-              <th data-field="state">State</th>
-              <th data-field="people_12m">People affected, 12 months</th>
-              <th data-field="people_12m_low" class="hide-narrow">95% low</th>
-              <th data-field="people_12m_high" class="hide-narrow">95% high</th>
-              <th data-field="per10k_12m">Per 10,000 residents</th>
-              <th data-field="hosp_er_12m">Hospital and ER care, newly uninsured ($M)</th>
-              <th data-field="uncomp_12m" class="hide-narrow">Unpaid ($M)</th>
-            </tr>
-          </thead>
-          <tbody data-draw="cplstates" data-source="coupled_states"></tbody>
-        </table>
-      </div>
-    </details>
   </section>
 
   <div class="fc-grid">
@@ -339,8 +423,136 @@
     </details>
   </section>
 </div>
+  </section>
 
+  <section class="fx-page" id="coupled-model" role="tabpanel" hidden>
+<div class="fc">
+  <section class="fc-card" id="coupled">
+    <h2>Coupled model: how the losses feed each other in 2027</h2>
+    <p class="fc-note">A second model follows Medicaid expansion adults month by month, tracking Medicaid, SNAP, work and hospital use together instead of treating each group on its own. Its levels come from 2026 data: SNAP caseloads through mid-2026, Nebraska's first Medicaid work-requirement results, the Federal Reserve's September 2026 outlook after the oil shock, September 2026 prices, 2026 Marketplace enrollment and 2026 hospital payer data. Older studies supply only relative effects, such as how much the odds of a hospital stay change when SNAP is cut.</p>
+    <div class="fc-tiles">
+      <div class="fc-tile acc-all">
+        <span class="lab">People affected by Dec 31, 2027, coupled model</span>
+        <span class="big" data-draw="cpl" data-source="coupled" data-where="metric_id=people&amp;months=12" data-field="median">—</span>
+        <span class="rng" data-draw="cplrange" data-source="coupled" data-where="metric_id=people&amp;months=12">—</span>
+      </div>
+      <div class="fc-tile acc-mcd">
+        <span class="lab">Off Medicaid because of the new rules, Dec 31</span>
+        <span class="big" data-draw="cpl" data-source="coupled" data-where="metric_id=mcd_net&amp;months=12" data-field="median">—</span>
+        <span class="rng" data-draw="cplrange" data-source="coupled" data-where="metric_id=mcd_net&amp;months=12">—</span>
+      </div>
+      <div class="fc-tile acc-hosp">
+        <span class="lab">Hospital and ER care for the newly uninsured, 12 months</span>
+        <span class="big" data-draw="cpl" data-source="coupled" data-where="metric_id=hosp_er_cost&amp;months=12" data-field="median">—</span>
+        <span class="rng" data-draw="cplrange" data-source="coupled" data-where="metric_id=hosp_er_cost&amp;months=12">—</span>
+      </div>
+      <div class="fc-tile acc-snap">
+        <span class="lab">Extra hospital stays linked to losing SNAP, 12 months</span>
+        <span class="big" data-draw="cpl" data-source="coupled" data-where="metric_id=cascade_stays&amp;months=12" data-field="median">—</span>
+        <span class="rng" data-draw="cplrange" data-source="coupled" data-where="metric_id=cascade_stays&amp;months=12">—</span>
+      </div>
+    </div>
+
+    <div class="fc-grid" style="margin-top: var(--cds-gap-lg)">
+      <div>
+        <h2 class="fc-h" id="h-cpl-medicaid">Medicaid losses month by month</h2>
+        <p class="fc-note">People off Medicaid because of the new rules at the end of each month, compared with a no-new-rules run (annual renewals, normal churn). The band is the 95% interval. The gap between "ever lost" and "off at month end" is people who re-enrolled. By June 30 the chain reaches <b data-draw="cplshare" data-source="coupled_timeline">—</b> of its December total; the first model assumed 35–60%.</p>
+        <div class="fc-chart" data-draw="cpltimeline" data-source="coupled_timeline"></div>
+      </div>
+      <div>
+        <h2 class="fc-h" id="h-cpl-findings">What coupling changes</h2>
+        <ul>
+          <li><b>SNAP is larger.</b> Anchored to the observed fall of about 5 million since July 2025, the model counts <b data-draw="cpl" data-source="coupled" data-where="metric_id=snap_total&amp;months=12" data-field="median">—</b> off SNAP because of the law, higher than the first model, which started from CBO's estimate.</li>
+          <li><b>Medicaid losses are smaller.</b> Re-enrollment and the no-new-rules comparison bring Medicaid losses to <b data-draw="cpl" data-source="coupled" data-where="metric_id=mcd_net&amp;months=12" data-field="median">—</b> at year end; <b data-draw="cpl" data-source="coupled" data-where="metric_id=mcd_ever&amp;months=12" data-field="median">—</b> lose coverage at some point.</li>
+          <li><b>The overlap comes out of the chain.</b> <b data-draw="cpl" data-source="coupled" data-where="metric_id=mcd_overlap&amp;months=12" data-field="median">—</b> people lose both Medicaid and SNAP, counted once.</li>
+          <li><b>Hospital costs are higher.</b> 2023 unwinding data show people keep going to the ER after losing Medicaid, so uninsured hospital and ER care comes to <b data-draw="cpl" data-source="coupled" data-where="metric_id=hosp_er_cost&amp;months=12" data-field="median">—</b>, of which <b data-draw="cpl" data-source="coupled" data-where="metric_id=uncomp_care&amp;months=12" data-field="median">—</b> goes unpaid.</li>
+          <li><b>The health cascade is real but modest.</b> Losing SNAP adds about <b data-draw="cpl" data-source="coupled" data-where="metric_id=cascade_stays&amp;months=12" data-field="median">—</b> hospital stays costing <b data-draw="cpl" data-source="coupled" data-where="metric_id=cascade_cost&amp;months=12" data-field="median">—</b>, and about <b data-draw="cpl" data-source="coupled" data-where="metric_id=health_jobs&amp;months=12" data-field="median">—</b> jobs lost after those stays.</li>
+          <li><b>The coverage gap depends on the economy.</b> In the 10 non-expansion states it is close to zero unless unemployment rises; in the worst 2.5% of scenarios it reaches <b data-draw="cpl" data-source="coupled" data-where="metric_id=gap&amp;months=12" data-field="high">—</b>.</li>
+          <li><b>Costs passed to commercial premiums are small.</b> About <b data-draw="cpl" data-source="coupled" data-where="metric_id=cost_shift&amp;months=12" data-field="median">—</b> over the year, roughly <b data-draw="cpl" data-source="coupled" data-where="metric_id=cost_shift_per_person&amp;months=12" data-field="median">—</b> per commercially insured person.</li>
+          <li><b>Linked inputs widen the interval.</b> With the shared friction and economy factors, the 12-month interval is <b data-draw="cplwidth" data-source="coupled">—</b> wider than with every input drawn separately.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2 class="fc-h" id="h-cpl-compare" style="margin-top: var(--cds-gap-lg)">First model vs coupled model, 12 months</h2>
+    <p class="fc-note">Medians, with the coupled model's 95% interval and the interval it would have if its inputs were drawn independently.</p>
+    <div class="fc-tablewrap">
+      <table data-source="cpl_compare" data-row-key="measure_id">
+        <thead>
+          <tr>
+            <th data-field="measure">Measure</th>
+            <th data-field="independent">First model</th>
+            <th data-field="coupled">Coupled model</th>
+            <th data-field="coupled_low" class="hide-narrow">Coupled 95% low</th>
+            <th data-field="coupled_high" class="hide-narrow">Coupled 95% high</th>
+            <th data-field="unlinked_low" class="hide-narrow">Unlinked 95% low</th>
+            <th data-field="unlinked_high" class="hide-narrow">Unlinked 95% high</th>
+          </tr>
+        </thead>
+        <tbody data-draw="cplcompare" data-source="cpl_compare"></tbody>
+      </table>
+    </div>
+
+    <details style="margin-top: var(--cds-gap-lg)">
+      <summary>How the coupled model works</summary>
+      <ol style="margin-top: var(--cds-gap-md)">
+        <li><b>A monthly chain for the 20.4 million expansion adults.</b> Each person is in one of 48 combined states: Medicaid, uninsured or other coverage; never on SNAP, on SNAP, recently cut or cut; employed or not; subject to work rules or exempt.</li>
+        <li><b>Checks drive Medicaid losses.</b> Each person's first check comes at their next annual renewal, then every six months. Failure rates are set from Nebraska's 2026 results, are higher for adults not employed and for people already cut from SNAP, and lower for exempt adults. People can re-enroll after showing a compliant month. A second run without the new rules is subtracted.</li>
+        <li><b>SNAP losses</b> are anchored to the fall observed since July 2025, with the share caused by the law as a range, plus further 2027 losses. Inside the chain, adults not working lose SNAP under the time limit.</li>
+        <li><b>Losing SNAP raises the odds of a hospital stay</b> on a logistic scale: an odds ratio for losing participation times an odds ratio per $10 of benefit, converted from 2026 prices to the study's prices, building up over three months.</li>
+        <li><b>Jobs and coverage are linked.</b> Job loss and finding rates follow the unemployment path; a hospital stay can lead to job loss; not working raises the chance of failing the Medicaid check; in non-expansion states a job loss can push low-income Marketplace enrollees below 100% of poverty.</li>
+        <li><b>Hospital care for the newly uninsured</b> uses ER and stay rates relative to insured adults from 2023–2026 payer data, at 2027 hospital costs; part of the unpaid cost may pass to commercial premiums.</li>
+        <li><b>Inputs move together.</b> One shared factor links Medicaid, SNAP and Marketplace losses (state paperwork and verification), another links unemployment, job loss and hiring. 10,000 scenarios; 95% intervals are the 2.5th to 97.5th percentiles.</li>
+      </ol>
+      <div class="fc-tablewrap" style="margin-top: var(--cds-gap-md)">
+        <table data-source="coupled_inputs" data-row-key="id">
+          <thead>
+            <tr>
+              <th data-field="parameter">Input</th>
+              <th data-field="low">Low</th>
+              <th data-field="central">Central</th>
+              <th data-field="high">High</th>
+              <th data-field="unit">Unit</th>
+              <th data-field="basis">Basis</th>
+            </tr>
+          </thead>
+          <tbody data-draw="cplinputs" data-source="coupled_inputs"></tbody>
+        </table>
+      </div>
+      <ul class="small" style="margin-top: var(--cds-gap-md)">
+        <li>Nebraska's figures are from an early rollout before CMS's June 2026 rule, so the central failure rate is set below them; states with strong data matching could see fewer losses.</li>
+        <li>The SNAP and hospital-stay link comes from a study of adults 65 and older (2009–12); most people cut from SNAP in 2027 are younger, so the range includes no effect.</li>
+        <li>The model has no individual records; the joint states are built from state totals and published shares.</li>
+      </ul>
+    </details>
+
+    <details style="margin-top: var(--cds-gap-md)">
+      <summary>Coupled model by state</summary>
+      <div class="fc-tablewrap" style="margin-top: var(--cds-gap-md)">
+        <table data-source="coupled_states" data-row-key="state">
+          <thead>
+            <tr>
+              <th data-field="state">State</th>
+              <th data-field="people_12m">People affected, 12 months</th>
+              <th data-field="people_12m_low" class="hide-narrow">95% low</th>
+              <th data-field="people_12m_high" class="hide-narrow">95% high</th>
+              <th data-field="per10k_12m">Per 10,000 residents</th>
+              <th data-field="hosp_er_12m">Hospital and ER care, newly uninsured ($M)</th>
+              <th data-field="uncomp_12m" class="hide-narrow">Unpaid ($M)</th>
+            </tr>
+          </thead>
+          <tbody data-draw="cplstates" data-source="coupled_states"></tbody>
+        </table>
+      </div>
+    </details>
+  </section>
+</div>
+  </section>
+</div>
   </main>
+  <script src="js/tabs.js"></script>
+  <script src="js/enrollment.js"></script>
   <script src="js/charts.js"></script>
+  
 </body>
 </html>
