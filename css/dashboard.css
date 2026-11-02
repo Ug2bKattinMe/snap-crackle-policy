@@ -91,6 +91,10 @@
 
   .fx { font-family: var(--font-anthropic-sans); display: grid; gap: var(--cds-gap-lg); }
   .fx > *, .fx-page > .hm, .fx-page > .fc, .hm > *, .fc > * { min-width: 0; }
+  .fx-byline { margin: calc(-1 * var(--cds-gap-sm)) 0 0; font-size: var(--cds-font-size-body); color: var(--color-fg-muted); }
+  .fx-byline a, .fx-foot a { color: var(--color-fg); text-underline-offset: 2px; }
+  .fx-foot { border-top: 1px solid var(--color-border-line); padding-top: var(--cds-gap-md); font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); display: grid; gap: var(--cds-gap-xs); }
+  .fx-foot p { margin: 0; max-width: 64rem; }
   .fx-head { display: grid; gap: var(--cds-gap-md); }
   .fx-title { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); margin: 0; text-wrap: balance; }
   .fx-tabs { display: flex; flex-wrap: wrap; gap: var(--cds-gap-xs); border-bottom: 1px solid var(--color-border-line); }
