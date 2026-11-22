@@ -1,0 +1,13 @@
+metric_id,metric,value,source
+snap_jul2025,"SNAP recipients, July 2025",564900.0,SC DSS
+snap_jul2026,"SNAP recipients, July 2026",481856.0,SC DSS
+snap_drop,"Fall in SNAP recipients, July 2025 to July 2026",83044.0,SC DSS
+snap_drop_pct,Fall in SNAP recipients (%),14.7,SC DSS
+us_drop_pct,Fall in SNAP recipients nationally (%),13.3,USDA via FRAC
+snap_benefits_month,"SNAP benefits issued, July 2026 ($)",89341975.0,SC DSS
+mkt_drop_2026,Marketplace enrollees lost in early 2026 (tax credits expired),160000.0,KFF; Here Columbia
+mkt_drop_2026_pct,"Marketplace effectuated enrollment change, 2025 to 2026 (%)",-29.0,KFF
+mkt_rate_2027,Average 2027 Marketplace rate increase (%),22.1,SC Department of Insurance via Here Columbia
+error_rate_fy25,"SNAP payment error rate, FY2025 (%)",8.8,USDA FY2025 rates
+coverage_gap,Adults in the coverage gap (2024 estimate),83000.0,CBPP via SC Daily Gazette
+palmetto_cap,"Parents Palmetto Pathways would cover (cap, pending)",11400.0,SC DHHS via SC Daily Gazette

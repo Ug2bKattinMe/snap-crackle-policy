@@ -1,0 +1,46 @@
+metric_id,metric,horizon,months,low,median,high,unit
+people,"South Carolinians affected, counted once",6 months,6,66954.39932658547,90591.96781146427,115239.0201909563,people
+people,"South Carolinians affected, counted once",12 months,12,71862.97896324666,97452.59052865561,124358.42164542289,people
+snap_off,Off SNAP because of the law,6 months,6,40427.60917835805,56254.58991279034,72191.07934818891,people
+snap_off,Off SNAP because of the law,12 months,12,42073.55568817487,58609.81131299702,75201.93917255456,people
+mkt,Lost Marketplace coverage or subsidy (2027 rules),6 months,6,14617.542971747052,27596.12846056146,43937.63891045665,people
+mkt,Lost Marketplace coverage or subsidy (2027 rules),12 months,12,16340.327245217453,30705.28420463198,48831.43626312114,people
+imm,Immigrants losing Medicaid or Medicare,6 months,6,2417.8711924307177,3151.784411671489,3897.804292015793,people
+imm,Immigrants losing Medicaid or Medicare,12 months,12,2417.8711924307177,3151.784411671489,3897.804292015793,people
+job_losers,Job losers counted,6 months,6,1612.8393818225911,2746.9463694242704,8516.885156786857,people
+job_losers,Job losers counted,12 months,12,1712.3161415513953,3077.776843679894,17033.770313573714,people
+jobs_cut,Jobs lost from the cuts,6 months,6,1555.0843686483795,2467.4249062395725,3782.666592384987,people
+jobs_cut,Jobs lost from the cuts,12 months,12,1634.7229227046607,2588.08583498151,3976.036367927453,people
+fed_cut,Federal money no longer reaching SC ($),6 months,6,92940471.13005048,134370704.08269376,187730985.84230673,dollars
+fed_cut,Federal money no longer reaching SC ($),12 months,12,195675190.59292954,282201371.9747503,394286834.50264645,dollars
+gdp_loss,Lost economic output in SC ($),6 months,6,115799005.6168926,166813072.5204417,231269114.2334004,dollars
+gdp_loss,Lost economic output in SC ($),12 months,12,243590088.43030444,350021720.24964947,484441797.3153687,dollars
+tax_loss,State and local tax revenue lost ($),6 months,6,8729229.313305952,13239451.213262714,19475666.56358857,dollars
+tax_loss,State and local tax revenue lost ($),12 months,12,18362386.31296087,27760490.9893025,40854088.923441574,dollars
+newly_uninsured,Newly uninsured South Carolinians,6 months,6,13647.009486046769,24007.4003604397,38422.62678090933,people
+newly_uninsured,Newly uninsured South Carolinians,12 months,12,14362.800374945726,25302.957247121078,40332.986385253054,people
+er_visits,ER visits by the newly uninsured,6 months,6,4407.817800784132,8378.751357350655,14787.872436723525,people
+er_visits,ER visits by the newly uninsured,12 months,12,9273.841104533092,17657.89927243394,31060.020149327276,people
+ip_stays,Hospital stays by the newly uninsured,6 months,6,352.31933180396527,690.9442070774195,1249.2551628194506,people
+ip_stays,Hospital stays by the newly uninsured,12 months,12,741.6231258491979,1458.104478153161,2629.6985126252393,people
+hosp_er_cost,Hospital and ER care for the newly uninsured ($),6 months,6,8859359.206836216,16651062.594469314,28832231.776335523,dollars
+hosp_er_cost,Hospital and ER care for the newly uninsured ($),12 months,12,18676372.038209878,35104322.45968698,60526524.6284895,dollars
+uncomp_care,Unpaid: uncompensated hospital care ($),6 months,6,7227181.840444368,13707776.970276898,23900049.266490944,dollars
+uncomp_care,Unpaid: uncompensated hospital care ($),12 months,12,15257172.740165116,28888106.28293536,50287989.86918301,dollars
+snap_extra_stays,Extra hospital stays linked to losing SNAP,6 months,6,121.48269897182483,390.1579452460719,812.2267240357199,people
+snap_extra_stays,Extra hospital stays linked to losing SNAP,12 months,12,254.08769217369465,813.6792003315838,1685.4118175244437,people
+snap_extra_cost,Cost of extra hospital stays linked to losing SNAP ($),6 months,6,1698056.5276187947,5447839.01990101,11569374.912145048,dollars
+snap_extra_cost,Cost of extra hospital stays linked to losing SNAP ($),12 months,12,3537889.8143678275,11356925.98903387,24027894.874108758,dollars
+household_cost,Added household costs ($),6 months,6,122035032.18347622,145408033.5968616,168800675.41141748,dollars
+household_cost,Added household costs ($),12 months,12,247385731.149666,294299773.0135462,341569229.5781631,dollars
+lost_snap,Lost SNAP benefits ($),6 months,6,44974628.70885869,62581719.421865866,80310635.62162443,dollars
+lost_snap,Lost SNAP benefits ($),12 months,12,93611399.9316151,130403679.86486828,167320272.51724726,dollars
+medicare_cost,Added Medicare premiums and drug costs ($),6 months,6,61829941.13385785,71649545.8852205,81703695.74084179,dollars
+medicare_cost,Added Medicare premiums and drug costs ($),12 months,12,122850507.30447388,140374600.34482795,158521459.13855705,dollars
+state_admin,New state cost: SNAP administration ($),6 months,6,10080521.542526942,11515912.805286612,12927812.059438195,dollars
+state_admin,New state cost: SNAP administration ($),12 months,12,20161043.085053883,23031825.610573225,25855624.11887639,dollars
+state_benefit,New state cost: share of SNAP benefits ($),6 months,6,0.0,0.0,0.0,dollars
+state_benefit,New state cost: share of SNAP benefits ($),12 months,12,13202236.326426689,26540333.561369054,40023752.5651627,dollars
+state_total,"New state SNAP costs, total ($)",6 months,6,10080521.542526942,11515912.805286612,12927812.059438195,dollars
+state_total,"New state SNAP costs, total ($)",12 months,12,34005181.702982955,49587608.491388544,65037058.722686104,dollars
+state_benefit_fy28,"State share of SNAP benefits, full year from Oct 2027 ($)",12 months,12,52808945.305706754,106161334.24547622,160095010.2606508,dollars
