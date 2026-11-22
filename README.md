@@ -10,10 +10,14 @@ A scenario forecast of how many people lose Medicaid, SNAP, Medicare or Marketpl
 
 | | 6 months | 12 months |
 |---|---|---|
-| People affected, counted once | 5.9M (4.9M – 7.1M) | 7.3M (6.0M – 8.8M) |
-| Lost economic output (GDP) | $11.5B | $29.5B ($22.6B – $37.7B) |
-| Jobs lost from the cuts | 218K | 327K (217K – 471K) |
-| Hospital and ER care for the newly uninsured | $1.0B | $2.8B ($1.8B – $4.2B) |
+| People affected, counted once | 5.5M (4.5M – 6.8M) | 7.0M (5.7M – 8.5M) |
+| Lost economic output (GDP) | $10.1B | $24.9B ($19.1B – $32.1B) |
+| Jobs lost from the cuts | 166K | 277K (186K – 399K) |
+| Hospital and ER care for the newly uninsured | $0.8B | $2.1B ($1.3B – $3.3B) |
+
+## November 22, 2026 update
+
+The models now include CMS's optional delay of Medicaid work-requirement enforcement to June 30, 2027 (announced November 13; states decide by December 11), the court ruling that widened the medically frail exemption, CMS's final 2027 Part B premium ($209.40), July 2026 Medicaid enrollment, and SNAP data through August 2026 (35.8 million, down 5.6 million in a year). Medicaid losses by June fall sharply and by December somewhat; SNAP estimates rise with the larger observed decline; Marketplace estimates are unchanged. Possible 2027 legislation from the new Congress is not modeled.
 
 ## View the dashboard
 
@@ -21,13 +25,15 @@ A scenario forecast of how many people lose Medicaid, SNAP, Medicare or Marketpl
 
 The dashboard is a static page: `index.html` plus the CSV and JSON files in `data/`. It loads d3 v7 from cdnjs and fonts from Google Fonts. To run it on your own computer, start a small web server in this folder (`python3 -m http.server 8000`) and open http://localhost:8000.
 
-The page has three tabs:
+The page opens on a **Home** tab that introduces the dashboard and gives each tab a card with the question it answers, a headline figure and what's inside. Then come four tabs:
 
 - **Enrollment and SNAP overlap:** heat maps of Medicare only, dual enrollees, Medicaid/CHIP only and Medicare Advantage as shares of state population, a table for every state (with Medicaid children and adults), and the SNAP and health coverage overlap model with a 95% interval.
 - **2027 forecast:** the first model, which treats each group separately (20,000 scenarios): people affected, dollars, hospital and ER costs, jobs, and results by state.
 - **Coupled model:** a monthly model that links Medicaid, SNAP, jobs and hospital use (10,000 scenarios), compared with the first model.
 
-Add `#enrollment`, `#forecast` or `#coupled-model` to the address to open a tab directly.
+- **South Carolina:** a state deep-dive built from South Carolina's own SNAP and Marketplace data: a county map (SNAP change, SNAP per 1,000 residents, forecast affected per 1,000), every county, and new state SNAP costs.
+
+Add `#enrollment`, `#forecast` `#coupled-model` or `#south-carolina` to the address to open a tab directly.
 
 ## Rerun the model
 
@@ -36,9 +42,10 @@ pip install -r requirements.txt
 python3 model/snap_overlap_model.py   # SNAP x Medicaid/Medicare overlap by state -> data/inputs/snap_overlap_2027.csv
 python3 model/forecast_model.py       # forecast -> data/forecast_national.csv, forecast_timeline.csv, forecast_states.csv
 python3 model/coupled_model.py        # coupled monthly model -> data/coupled_national.csv, coupled_timeline.csv, coupled_states.csv
+python3 model/sc_model.py             # South Carolina -> data/sc/sc_forecast.csv, sc_context.csv, sc_counties.csv
 ```
 
-All three scripts use a fixed random seed, so a rerun reproduces the published numbers exactly. Change an input range in `model/forecast_model.py` (the `P = dict(...)` block) and rerun to see a different scenario; update `data/forecast_assumptions.csv` to match so the page's input table stays accurate.
+All the scripts use a fixed random seed, so a rerun reproduces the published numbers exactly. Change an input range in `model/forecast_model.py` (the `P = dict(...)` block) and rerun to see a different scenario; update `data/forecast_assumptions.csv` to match so the page's input table stays accurate.
 
 `model/project_states.py` rebuilds `data/us_state_shapes.json` from a US states GeoJSON file (Albers USA layout with Alaska and Hawaii insets):
 
@@ -73,7 +80,7 @@ A second model that treats the groups as one linked system instead of independen
 - **Hospital costs** use ER and stay rates for the newly uninsured from 2023–2026 payer data (Epic Research, HCA), at 2027 hospital costs, with an optional pass-through to commercial premiums.
 - **Correlated inputs:** an administrative-friction factor links Medicaid, SNAP and Marketplace losses; an economy factor links unemployment, job loss and hiring (Gaussian copula). The script also reruns with the links removed (`low_unlinked`, `high_unlinked`).
 
-12-month medians (95% interval): 7.6M people affected (5.3M – 10.0M); 2.42M off Medicaid at year end, 2.62M ever lost; 3.58M off SNAP; $3.4B of hospital and ER care for the newly uninsured ($2.0B – $5.4B), $2.8B unpaid; about 46K extra hospital stays linked to losing SNAP. Inputs and their basis: `data/coupled_assumptions.csv`.
+12-month medians (95% interval): 7.7M people affected (5.5M – 10.0M); 1.98M off Medicaid at year end; 4.0M off SNAP; $2.8B of hospital and ER care for the newly uninsured ($1.7B – $4.6B), $2.3B unpaid; about 53K extra hospital stays linked to losing SNAP. Inputs and their basis: `data/coupled_assumptions.csv`.
 
 ## Data sources
 

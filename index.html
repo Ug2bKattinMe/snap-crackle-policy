@@ -21,13 +21,81 @@
     <h1 class="fx-title">Medicare, Medicaid and SNAP: enrollment and the 2027 forecast</h1>
     <p class="fx-byline">By <a href="https://github.com/ug2bkattinme" target="_blank" rel="noopener noreferrer author">Ug2bKattinMe</a>, independent research analyst · <a href="https://substack.com/@ug2bkattinme" target="_blank" rel="noopener noreferrer">Substack @ug2bkattinme</a></p>
     <div class="fx-tabs" role="tablist" aria-label="Dashboard pages">
-      <button type="button" class="fx-tab" role="tab" data-tab="enrollment" aria-controls="enrollment" aria-selected="true">Enrollment and SNAP overlap</button>
+      <button type="button" class="fx-tab" role="tab" data-tab="home" aria-controls="home" aria-selected="true">Home</button>
+      <button type="button" class="fx-tab" role="tab" data-tab="enrollment" aria-controls="enrollment" aria-selected="false">Enrollment and SNAP overlap</button>
       <button type="button" class="fx-tab" role="tab" data-tab="forecast" aria-controls="forecast" aria-selected="false">2027 forecast</button>
       <button type="button" class="fx-tab" role="tab" data-tab="coupled-model" aria-controls="coupled-model" aria-selected="false">Coupled model</button>
+      <button type="button" class="fx-tab" role="tab" data-tab="south-carolina" aria-controls="south-carolina" aria-selected="false">South Carolina</button>
     </div>
   </header>
 
-  <section class="fx-page" id="enrollment" role="tabpanel">
+  <section class="fx-page" id="home" role="tabpanel">
+    <div class="fx-home">
+      <p class="fx-intro">This dashboard tracks who is covered by Medicare, Medicaid, CHIP and SNAP today, and forecasts what the 2025 federal law and 2027 rule changes will mean for people, hospitals, households and the economy, nationally, by state and in depth for South Carolina. Each tab answers one question. Pick one below or use the tabs above.</p>
+      <p class="fx-updated">Last updated November 22, 2026: forecasts include CMS's optional delay of Medicaid work-requirement enforcement to July 2027 and the states taking it so far, the court ruling on the medically frail exemption, the final 2027 Part B premium, July 2026 Medicaid enrollment and SNAP data through August 2026.</p>
+
+      <div class="fx-cards">
+        <article class="fx-card" style="--tab: var(--p-mcd)">
+          <h2>Enrollment and SNAP overlap</h2>
+          <p class="fx-q">Who is covered today, state by state?</p>
+          <p class="fx-fig"><b data-draw="hmnat" data-source="hm_national" data-row="0" data-field="any_pct">—</b><span>of U.S. residents are on Medicare, Medicaid or CHIP, counting each person once</span></p>
+          <ul>
+            <li>Heat maps of Medicare only, dual enrollees, Medicaid/CHIP only and Medicare Advantage as shares of each state's population</li>
+            <li>A table for every state, with Medicaid children and adults</li>
+            <li>Who is likely to lose SNAP and also faces a 2027 Medicare or Medicaid change, with 95% intervals</li>
+          </ul>
+          <button type="button" class="fx-go" data-goto="enrollment">Open Enrollment</button>
+        </article>
+
+        <article class="fx-card" style="--tab: var(--p-all)">
+          <h2>2027 forecast</h2>
+          <p class="fx-q">How many people lose coverage or help in 2027, and what does it cost?</p>
+          <p class="fx-fig"><b data-draw="nat" data-source="national" data-where="metric_id=people&amp;months=12" data-field="median">—</b><span>people forecast to lose SNAP, Medicaid, Medicare or Marketplace help, or a job tied to the cuts, by Dec 31, 2027</span></p>
+          <ul>
+            <li>People affected at 6 and 12 months, and month by month</li>
+            <li>Federal spending, lost economic output, jobs, household costs, and hospital and ER care for the newly uninsured</li>
+            <li>A state map and table, the model's inputs, methods and sources</li>
+          </ul>
+          <button type="button" class="fx-go" data-goto="forecast">Open the forecast</button>
+        </article>
+
+        <article class="fx-card" style="--tab: var(--p-mkt)">
+          <h2>Coupled model</h2>
+          <p class="fx-q">What happens when the losses feed each other?</p>
+          <p class="fx-fig"><b data-draw="cpl" data-source="coupled" data-where="metric_id=people&amp;months=12" data-field="median">—</b><span>people affected by Dec 31, 2027 when Medicaid, SNAP, jobs and hospital use are linked month by month</span></p>
+          <ul>
+            <li>Medicaid losses month by month, including people who re-enroll</li>
+            <li>The health cascade from losing SNAP, and the coverage gap in non-expansion states</li>
+            <li>A side-by-side comparison with the 2027 forecast</li>
+          </ul>
+          <button type="button" class="fx-go" data-goto="coupled-model">Open the coupled model</button>
+        </article>
+
+        <article class="fx-card" style="--tab: var(--p-snap)">
+          <h2>South Carolina</h2>
+          <p class="fx-q">What does 2027 look like in a state that didn't expand Medicaid?</p>
+          <p class="fx-fig"><b data-draw="scnum" data-source="sc_forecast" data-where="metric_id=people&amp;months=12" data-field="median">—</b><span>South Carolinians forecast to lose SNAP, Marketplace coverage or a job tied to the cuts in 2027</span></p>
+          <ul>
+            <li>A county map of SNAP change, SNAP reach and the 2027 forecast</li>
+            <li>Every county's SNAP figures and forecast</li>
+            <li>New state SNAP costs from October 2027, and the Marketplace and coverage gap</li>
+          </ul>
+          <button type="button" class="fx-go" data-goto="south-carolina">Open South Carolina</button>
+        </article>
+      </div>
+
+      <section class="fx-howto">
+        <h2>How to read it</h2>
+        <ul>
+          <li><b>Forecasts are modeled estimates, not official projections.</b> Each shows a median and a 95% interval from thousands of simulated scenarios; the interval doesn't cover new legislation, court rulings or a recession.</li>
+          <li><b>Each person is counted once.</b> People who lose more than one kind of help, or lose a job and coverage, aren't double counted.</li>
+          <li><b>Hover any map or chart</b> for exact figures, and open each tab's methods and sources for where every number comes from.</li>
+        </ul>
+      </section>
+    </div>
+  </section>
+
+  <section class="fx-page" id="enrollment" role="tabpanel" hidden>
 <div class="hm">
   <header>
     <h2 class="hm-title">Medicare and Medicaid enrollment by state</h2>
@@ -65,7 +133,7 @@
 
   <section class="hm-card" id="hm-state-table">
     <h2>Every state</h2>
-    <p class="hm-note">The same figures as the maps, including small states that are hard to see there. Each share is of the state's resident population. Total covered adds Medicare only, dual enrollees and Medicaid/CHIP only, so each person is counted once; Medicare Advantage is not added again because those people are already in the Medicare and dual groups. The children and adults columns split all Medicaid and CHIP enrollees (June 2026), including full-benefit duals, so they add up to Medicaid and CHIP enrollment rather than to the "only" column; adults include seniors and people with disabilities as well as expansion adults.</p>
+    <p class="hm-note">The same figures as the maps, including small states that are hard to see there. Each share is of the state's resident population. Total covered adds Medicare only, dual enrollees and Medicaid/CHIP only, so each person is counted once; Medicare Advantage is not added again because those people are already in the Medicare and dual groups. The children and adults columns split all Medicaid and CHIP enrollees as of June 2026 (CMS's latest snapshot), including full-benefit duals, so they add up to June enrollment, within about 1% of the July totals used elsewhere, rather than to the "only" column; adults include seniors and people with disabilities as well as expansion adults.</p>
     <div class="hm-tablewrap">
       <table data-source="shares" data-row-key="state">
         <thead>
@@ -148,7 +216,7 @@
       <li>"Using the program" means enrolled. Enrollment counts people with coverage, whether or not they used care.</li>
       <li>Medicare only is total Medicare enrollment minus all dual enrollees. Medicaid or CHIP only is Medicaid and CHIP enrollment minus full-benefit dual enrollees, because CMS's Medicaid count includes only people with full Medicaid benefits and leaves out partial-benefit duals.</li>
       <li>Dual enrollees are from CMS Medicare enrollment data for early 2026, as published by KFF. Medicare Advantage is from CMS's October 2026 contract, plan, state and county report and includes PACE and cost plans; plan counts of 10 or fewer in a county are suppressed in that file and counted as zero.</li>
-      <li>The years differ. Total Medicare by state is 2024 (the latest year KFF publishes), Medicaid and CHIP is June 2026, and population is the Census Bureau's July 2025 estimate. Because Medicare enrollment has grown since 2024, the Medicare-only share is likely a little low.</li>
+      <li>The years differ. Total Medicare by state is 2024 (the latest year KFF publishes), Medicaid and CHIP is July 2026, and population is the Census Bureau's July 2025 estimate. Because Medicare enrollment has grown since 2024, the Medicare-only share is likely a little low.</li>
       <li>Puerto Rico and other territories are left out. Alaska and Hawaii are moved and resized to fit.</li>
       <li>Each map's color scale runs from its own lowest to highest state, so compare shades within a map, not across maps.</li>
       <li>SNAP overlap is a model, not a count. It starts from CBPP's state estimates of adults 55–64 and parents of school-age children newly subject to SNAP work rules (FY2022 data), then applies uncertain national rates: 30–48% of those parents have a youngest child 14 or older; 18–50% of people newly subject lose SNAP (Arkansas's 2018 Medicaid experience to CBO's estimate); 65–85% of older adults and 35–65% of parents in expansion states are expansion adults also facing Medicaid work rules (0–10% in non-expansion states); 15–40% of the children in those households leave SNAP with the parent; and 40–55% of dual enrollees are on SNAP, of whom 1–5% lose it. Each range is a stated assumption, not a published rate.</li>
@@ -169,7 +237,7 @@
       </li>
       <li>
         <a href="https://www.kff.org/medicaid/state-indicator/medicaid-and-chip-monthly-enrollment/" target="_blank" rel="noopener noreferrer">Medicaid and CHIP monthly enrollment</a>
-        <span class="src-meta">KFF State Health Facts, from CMS data · June 2026 · Medicaid or CHIP only</span>
+        <span class="src-meta">KFF State Health Facts, from CMS data · July 2026 · Medicaid or CHIP only</span>
       </li>
       <li>
         <a href="https://www.medicaid.gov/medicaid/national-medicaid-chip-program-information/medicaid-chip-enrollment-data/october-2025-medicaid-chip-enrollment-data-highlights" target="_blank" rel="noopener noreferrer">Medicaid and CHIP enrollment data highlights</a>
@@ -226,6 +294,19 @@
     <h2 class="fc-title">2027 coverage, SNAP and jobs impact forecast</h2>
     <p class="fc-take">By the end of June 2027, about <b data-draw="nat" data-source="national" data-where="metric_id=people&amp;months=6" data-field="median">—</b> people are forecast to have lost Medicaid, SNAP, Medicare or Marketplace help, or a job tied to the cuts, counting each person once. By the end of 2027 that rises to <b data-draw="nat" data-source="national" data-where="metric_id=people&amp;months=12" data-field="median">—</b> (95% interval <b data-draw="nat" data-source="national" data-where="metric_id=people&amp;months=12" data-field="low">—</b> to <b data-draw="nat" data-source="national" data-where="metric_id=people&amp;months=12" data-field="high">—</b>), with about <b data-draw="nat" data-source="national" data-where="metric_id=gdp_loss&amp;months=12" data-field="median">—</b> in lost economic output over the year.</p>
   </header>
+
+  <section class="fc-card" id="midterms-note">
+    <h2>Updated November 22, 2026: after the midterms</h2>
+    <p class="fc-note">The forecast now includes four changes since the election. Democrats won majorities in both the House and the Senate, but the new Congress takes office January 3, 2027, after the rules start, and changing the law still needs the president's signature or a veto override.</p>
+    <ul>
+      <li><b>CMS delayed enforcement.</b> On November 13, CMS let states hold off on removing anyone for not meeting work requirements until June 30, 2027. States still check work status from January and decide by December 11 whether to take the delay. California (4.7 million adults facing the rules), New York, Maryland, Connecticut, Kentucky and the District of Columbia have said they will; Louisiana is seeking a grace period, and Nebraska is already enforcing. The forecast assumes states covering 60% to 95% of expansion adults take it, so far fewer people lose Medicaid by June and fewer by December.</li>
+      <li><b>A court widened the medically frail exemption.</b> A federal judge blocked CMS's narrower definition, so people with a qualifying condition don't have to prove they can't work. The forecast trims work-rule losses slightly.</li>
+      <li><b>The 2027 Part B premium is final.</b> CMS set it at $209.40 a month, up $6.50, replacing the projection.</li>
+      <li><b>SNAP kept falling.</b> USDA data now run through August 2026: 35.8 million people, down 5.6 million from a year earlier. Both models now start from that larger drop, which raises the SNAP estimate.</li>
+    </ul>
+    <p class="fc-note">Still open: a December 11 government funding deadline, Democrats' plans to restore enhanced Marketplace tax credits and reverse Medicaid cuts in 2027, and each state's choice on the delay. The 95% intervals do not include possible new legislation. The October jobs report (165,000 jobs, 4.1% unemployment) is in line with the Fed outlook the forecast already uses.</p>
+  </section>
+
 
   <section aria-labelledby="h-headline">
     <h2 class="fc-h" id="h-headline">Headline forecast</h2>
@@ -458,7 +539,7 @@
     <div class="fc-grid" style="margin-top: var(--cds-gap-lg)">
       <div>
         <h2 class="fc-h" id="h-cpl-medicaid">Medicaid losses month by month</h2>
-        <p class="fc-note">People off Medicaid because of the new rules at the end of each month, compared with a no-new-rules run (annual renewals, normal churn). The band is the 95% interval. The gap between "ever lost" and "off at month end" is people who re-enrolled. By June 30 the chain reaches <b data-draw="cplshare" data-source="coupled_timeline">—</b> of its December total; the first model assumed 35–60%.</p>
+        <p class="fc-note">People off Medicaid because of the new rules at the end of each month, compared with a no-new-rules run (annual renewals, normal churn). The band is the 95% interval. The gap between "ever lost" and "off at month end" is people who re-enrolled. By June 30 the chain reaches <b data-draw="cplshare" data-source="coupled_timeline">—</b> of its December total, low because most states are expected to hold off on removals until July.</p>
         <div class="fc-chart" data-draw="cpltimeline" data-source="coupled_timeline"></div>
       </div>
       <div>
@@ -551,6 +632,138 @@
 </div>
   </section>
 
+  <section class="fx-page" id="south-carolina" role="tabpanel" hidden>
+<div class="fc sc">
+  <header>
+    <h2 class="fc-title">South Carolina: 2027 coverage and SNAP outlook</h2>
+    <p class="fc-take">South Carolina never expanded Medicaid, so the 2027 Medicaid work requirement does not reach it. Its exposure runs through SNAP, the Marketplace and the state budget. By the end of 2027, about <b data-draw="scnum" data-source="sc_forecast" data-where="metric_id=people&amp;months=12" data-field="median">—</b> South Carolinians are forecast to have lost SNAP, Marketplace coverage or a job tied to the cuts (95% interval <b data-draw="scnum" data-source="sc_forecast" data-where="metric_id=people&amp;months=12" data-field="low">—</b> to <b data-draw="scnum" data-source="sc_forecast" data-where="metric_id=people&amp;months=12" data-field="high">—</b>). SNAP rolls have already fallen <b data-draw="scctx" data-source="sc_context" data-where="metric_id=snap_drop_pct" data-field="value">—</b>% in a year, against <b data-draw="scctx" data-source="sc_context" data-where="metric_id=us_drop_pct" data-field="value">—</b>% nationally.</p>
+  </header>
+
+  <section aria-labelledby="h-sc-headline">
+    <h2 class="fc-h" id="h-sc-headline">South Carolina at a glance</h2>
+    <div class="fc-tiles">
+      <div class="fc-tile acc-all">
+        <span class="lab">South Carolinians affected by Dec 31, 2027</span>
+        <span class="big" data-draw="scnum" data-source="sc_forecast" data-where="metric_id=people&amp;months=12" data-field="median">—</span>
+        <span class="rng" data-draw="scrange" data-source="sc_forecast" data-where="metric_id=people&amp;months=12">—</span>
+      </div>
+      <div class="fc-tile acc-snap">
+        <span class="lab">Fewer SNAP recipients, July 2025 to July 2026</span>
+        <span class="big" data-draw="scctx" data-source="sc_context" data-where="metric_id=snap_drop" data-field="value">—</span>
+        <span class="rng">Observed, SC Department of Social Services</span>
+      </div>
+      <div class="fc-tile acc-mkt">
+        <span class="lab">Marketplace enrollees lost in early 2026 (about)</span>
+        <span class="big" data-draw="scctx" data-source="sc_context" data-where="metric_id=mkt_drop_2026" data-field="value">—</span>
+        <span class="rng">After enhanced tax credits expired; before 2027</span>
+      </div>
+      <div class="fc-tile acc-house">
+        <span class="lab">State share of SNAP benefits, full year from Oct 2027</span>
+        <span class="big" data-draw="scnum" data-source="sc_forecast" data-where="metric_id=state_benefit_fy28&amp;months=12" data-field="median">—</span>
+        <span class="rng" data-draw="scrange" data-source="sc_forecast" data-where="metric_id=state_benefit_fy28&amp;months=12">—</span>
+      </div>
+      <div class="fc-tile acc-hosp">
+        <span class="lab">Hospital and ER care for the newly uninsured, 2027</span>
+        <span class="big" data-draw="scnum" data-source="sc_forecast" data-where="metric_id=hosp_er_cost&amp;months=12" data-field="median">—</span>
+        <span class="rng" data-draw="scrange" data-source="sc_forecast" data-where="metric_id=hosp_er_cost&amp;months=12">—</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="fc-grid">
+    <section class="fc-card" id="sc-groups">
+      <h2>Who is affected in 2027</h2>
+      <p class="fc-note">Median South Carolinians in each group at the end of 2027, with the 95% interval as a line. No Medicaid work-requirement group appears because South Carolina did not expand Medicaid.</p>
+      <div class="fc-chart" data-draw="scgroups" data-source="sc_forecast"></div>
+    </section>
+
+    <section class="fc-card" id="sc-map">
+      <h2>South Carolina by county</h2>
+      <p class="fc-note">Choose a measure. Darker counties are higher. Hover a county for its numbers.</p>
+      <label class="sc-pick">Measure
+        <select class="sc-metric" aria-label="Map measure">
+          <option value="snap_change_pct">SNAP change, July 2025 to July 2026</option>
+          <option value="snap_per_1000">SNAP recipients per 1,000 residents, July 2026</option>
+          <option value="people_per_1000">Forecast: people affected per 1,000 residents, 2027</option>
+        </select>
+      </label>
+      <div class="fc-chart sc-mapbox" data-draw="sccountymap" data-source="sc_counties sc_shapes"></div>
+    </section>
+  </div>
+
+  <section class="fc-card" id="sc-dollars">
+    <h2>Money: federal dollars, the economy, households and the state budget</h2>
+    <p class="fc-note">Totals over 2027 (12 months), medians with 95% intervals. The state's share of SNAP benefits starts October 1, 2027, so only three months fall in 2027; the full-year figure shows what follows. Its size depends on South Carolina's error rate: FY2025's 8.8% puts it in the 10% tier.</p>
+    <div class="fc-tablewrap">
+      <table data-source="sc_forecast" data-row-key="metric_id,months">
+        <thead>
+          <tr>
+            <th data-field="metric">Measure</th>
+            <th data-field="median">Median</th>
+            <th data-field="low">95% low</th>
+            <th data-field="high">95% high</th>
+          </tr>
+        </thead>
+        <tbody data-draw="scmoney" data-source="sc_forecast"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="fc-card" id="sc-counties">
+    <h2>Every county</h2>
+    <p class="fc-note">SNAP recipients from SC DSS monthly reports. The forecast gives each county its share of the state's SNAP losses in proportion to its own observed drop, and other groups by population. Medians with 95% intervals.</p>
+    <div class="fc-tablewrap">
+      <table data-source="sc_counties" data-row-key="county">
+        <thead>
+          <tr>
+            <th data-field="county">County</th>
+            <th data-field="persons_jul2025" class="hide-narrow">SNAP, July 2025</th>
+            <th data-field="persons_jul2026">SNAP, July 2026</th>
+            <th data-field="snap_change_pct">SNAP change (%)</th>
+            <th data-field="snap_per_1000" class="hide-narrow">SNAP per 1,000 residents</th>
+            <th data-field="people_12m">Forecast affected, 2027</th>
+            <th data-field="people_12m_low" class="hide-narrow">95% low</th>
+            <th data-field="people_12m_high" class="hide-narrow">95% high</th>
+            <th data-field="people_per_1000">Affected per 1,000</th>
+          </tr>
+        </thead>
+        <tbody data-draw="sccountytable" data-source="sc_counties"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="fc-card" id="sc-context">
+    <h2>What makes South Carolina different</h2>
+    <ul>
+      <li><b>No Medicaid expansion.</b> Parents qualify only up to 67% of the poverty line and most other adults not at all, so about <b data-draw="scctx" data-source="sc_context" data-where="metric_id=coverage_gap" data-field="value">—</b> adults fall in the coverage gap (2024 estimate). A state request to cover up to <b data-draw="scctx" data-source="sc_context" data-where="metric_id=palmetto_cap" data-field="value">—</b> working parents, with its own work requirement ("Palmetto Pathways"), is still awaiting federal approval and is not in the forecast.</li>
+      <li><b>SNAP is falling faster than the nation.</b> Recipients went from <b data-draw="scctx" data-source="sc_context" data-where="metric_id=snap_jul2025" data-field="value">—</b> to <b data-draw="scctx" data-source="sc_context" data-where="metric_id=snap_jul2026" data-field="value">—</b> in a year. The forecast counts 45% to 85% of that drop as caused by the 2025 law.</li>
+      <li><b>The Marketplace already took a hit.</b> Coverage fell <b data-draw="scctxabs" data-source="sc_context" data-where="metric_id=mkt_drop_2026_pct" data-field="value">—</b>% in early 2026, and approved 2027 rates rise <b data-draw="scctx" data-source="sc_context" data-where="metric_id=mkt_rate_2027" data-field="value">—</b>% on average before subsidies. The forecast counts only the further 2027 losses from new verification and immigrant rules.</li>
+      <li><b>After the election.</b> Governor-elect Alan Wilson won on November 3 and said during the campaign that Medicaid expansion could crowd out other state priorities, so the coverage gap is likely to remain. The Palmetto Pathways request is still pending with federal officials.</li>
+      <li><b>The state budget is exposed.</b> South Carolina's SNAP error rate was <b data-draw="scctx" data-source="sc_context" data-where="metric_id=error_rate_fy25" data-field="value">—</b>% in FY2025. Getting it under 6% before the FY2028 cost share is set would avoid the benefit bill entirely.</li>
+    </ul>
+    <details style="margin-top: var(--cds-gap-md)">
+      <summary>How the South Carolina forecast works</summary>
+      <ol style="margin-top: var(--cds-gap-md)">
+        <li><b>SNAP</b> starts from South Carolina's own drop of <b data-draw="scctx" data-source="sc_context" data-where="metric_id=snap_drop" data-field="value">—</b> recipients (July 2025 to July 2026), with the share caused by the law between 45% and 85%, plus further 2027 losses at South Carolina's share of national SNAP.</li>
+        <li><b>Marketplace</b> takes national 2027 losses at South Carolina's share of 2026 Marketplace enrollment (about 2%), not its population share. The 2026 drop is context, not counted.</li>
+        <li><b>Immigrant rules</b> reach South Carolina at its share of national Medicaid and Medicare enrollment. No Medicaid work requirement or six-month renewals apply.</li>
+        <li><b>Jobs, the economy and hospitals</b> use the same multipliers, rates and 2027 costs as the national models, applied to South Carolina's federal dollars and newly uninsured.</li>
+        <li><b>State costs</b> add the SNAP administrative share (50% to 75%, about $23 million a year) and, from October 2027, the benefit share by error-rate tier.</li>
+        <li><b>20,000 scenarios</b>; 95% intervals are the 2.5th to 97.5th percentiles. Counties share the state's scenarios, so their intervals move together.</li>
+      </ol>
+      <ul class="small" style="margin-top: var(--cds-gap-md)">
+        <li><a href="https://dss.sc.gov/media/d4oljpn0/july-2026-snap-tab13.pdf" target="_blank" rel="noopener noreferrer">SC DSS, SNAP participation by county, July 2026</a> and <a href="https://dss.sc.gov/media/zzlpsm4i/july-2025-snap-tab13.pdf" target="_blank" rel="noopener noreferrer">July 2025</a></li>
+        <li><a href="https://www.citypopulation.de/en/usa/admin/SC__south_carolina" target="_blank" rel="noopener noreferrer">Census Bureau county population estimates, July 2025 (via City Population)</a></li>
+        <li><a href="https://www.kff.org/affordable-care-act/how-has-aca-marketplace-enrollment-changed-across-states-in-2026/" target="_blank" rel="noopener noreferrer">KFF, Marketplace enrollment change by state, 2026</a> and <a href="https://www.herecolumbia.com/2026/11/02/sc-aca-open-enrollment-2027-rate-increase/" target="_blank" rel="noopener noreferrer">Here Columbia, 2027 SC rate increase</a></li>
+        <li><a href="https://snap-per.joelmcclurg.ai/" target="_blank" rel="noopener noreferrer">SNAP payment error rates FY2025 (USDA data)</a> and <a href="https://www.live5news.com/2025/12/17/sc-could-face-hundreds-millions-new-snap-costs-under-federal-rule-changes/" target="_blank" rel="noopener noreferrer">WCSC Live 5, SC DSS cost estimates</a></li>
+        <li><a href="https://scdailygazette.com/2025/07/16/thousands-more-could-get-medicaid-coverage-under-sc-request-for-limited-expansion/" target="_blank" rel="noopener noreferrer">SC Daily Gazette, Palmetto Pathways request</a>, <a href="https://www.medicaid.gov/medicaid/section-1115-demo/demonstration-and-waiver-list/182266" target="_blank" rel="noopener noreferrer">Medicaid.gov status (pending)</a> and <a href="https://scdailygazette.com/2024/07/22/in-the-10-states-that-didnt-expand-medicaid-1-6m-cant-afford-health-insurance/" target="_blank" rel="noopener noreferrer">coverage gap estimate</a></li>
+        <li><a href="https://github.com/plotly/datasets" target="_blank" rel="noopener noreferrer">U.S. county boundaries (Census, via plotly datasets)</a></li>
+      </ul>
+    </details>
+  </section>
+</div>
+  </section>
+
   <footer class="fx-foot">
     <p>© 2026 Ug2bKattinMe. All rights reserved. The models, analysis, text and design of this dashboard may not be copied, reproduced or redistributed without written permission. The underlying public data belong to the publishers named in the Sources sections.</p>
     <p><a href="https://github.com/ug2bkattinme" target="_blank" rel="noopener noreferrer author">GitHub: ug2bkattinme</a> · <a href="https://substack.com/@ug2bkattinme" target="_blank" rel="noopener noreferrer">Substack: @ug2bkattinme</a></p>
@@ -560,6 +773,7 @@
   <script src="js/tabs.js"></script>
   <script src="js/enrollment.js"></script>
   <script src="js/charts.js"></script>
+  <script src="js/sc.js"></script>
   
 </body>
 </html>
