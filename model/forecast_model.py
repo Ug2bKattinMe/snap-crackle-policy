@@ -21,7 +21,7 @@ MONTHS = np.arange(0, 13)  # 0 = Jan 1, 2027 (start), 6 = end of June, 12 = end 
 imp = pd.read_csv(H + 'impact_2027.csv')
 snap = pd.read_csv(H + 'snap_fy2025_raw.txt', sep='|', names=['state', 'snap_fy2025'])
 ov = pd.read_csv(H + 'snap_overlap_2027.csv')[['state', 'total_mid']].rename(columns={'total_mid': 'snap_med_overlap'})
-med = pd.read_csv(H + 'medicaid_chip_enrollment_jun2026.csv')[['abbr', 'medicaid_chip_enrollees']]
+med = pd.read_csv(H + 'medicaid_chip_enrollment_jul2026.csv')[['abbr', 'medicaid_chip_enrollees']]
 mcr = pd.read_csv(H + 'medicare_enrollment_2024.csv')[['abbr', 'medicare_enrollees']]
 d = (imp[['state', 'abbr', 'population_2025', 'exp_scaled', 'total_duals', 'pdp', 'partd_total', 'ma']]
      .merge(snap, on='state').merge(ov, on='state').merge(med, on='abbr').merge(mcr, on='abbr'))
@@ -45,7 +45,7 @@ P = dict(
     imm_mcd=U(70e3, 130e3, N), imm_mcr=U(70e3, 130e3, N),
     # SNAP: people off SNAP because of the law at any point in 2027 (CBO 2.4M average month; observed caseload fall
     # 4.3-4.5M since Jan 2025, only partly due to the law).
-    snap_off=T(2.4e6, 3.0e6, 4.0e6, N),
+    snap_off=T(2.5e6, 3.3e6, 4.6e6, N),  # Nov 22, 2026: observed fall now 5.6M (Aug 2025-Aug 2026) x 45-85% caused by the law; CBO 2.4M floor
     # Marketplace 2027 rule: fewer enrollees from verification (HHS up to 2M) and immigrant tax-credit ban (CBO ~0.9M
     # uninsured). Combined people losing Marketplace coverage by month 12; 70-90% of it from Jan 1 (plan-year start).
     mkt_loss12=T(0.6e6, 1.4e6, 2.6e6, N), mkt_front=U(0.70, 0.90, N),
@@ -69,12 +69,22 @@ P = dict(
     unpaid_share=U(0.75, 0.90, N),        # share of that hospital cost never paid (becomes uncompensated care)
     oop_per_uninsured=U(500, 1300, N),      # new out-of-pocket medical spending per newly uninsured person per year
     # Medicare cost increases for 2027 (people keep coverage but pay more).
-    partb_payers=U(54e6, 58e6, N), partb_rise=U(5.5, 8.0, N),          # $/month; Trustees: $202.90 -> $209.50
+    partb_payers=U(54e6, 58e6, N), partb_rise=U(5.5, 8.0, N),          # $/month; replaced below by CMS's final $6.50
     partd_ded_payers=U(10e6, 18e6, N),                                  # pay the higher $700 standard deductible (+$85)
     partd_cap_hitters=U(1.3e6, 2.4e6, N),                               # reach the cap: +$300
     pdp_prem_rise=U(3, 10, N), pdp_payers=U(17e6, 21e6, N),            # stand-alone plan premiums after demo ends
 )
 LF = 7.1e6 / 0.042  # labor force implied by Sept 2026 report (~169M)
+
+# November 2026 updates (added after the original draws so earlier inputs keep their values):
+# - CMS (Nov 13, 2026) let states suspend work-requirement disenrollments through June 30, 2027 ("hold harmless");
+#   states decide by Dec 11. Share of expansion adults in states that take it, and the share of the full-year
+#   work-rule losses those states reach by December once enforcement starts in July.
+# - A federal court (Nov 2026) blocked CMS's narrower "medically frail" definition, so more people qualify for that
+#   exemption: work-rule losses scaled down a little.
+# - CMS set the 2027 Part B premium at $209.40 (Nov 17, 2026): +$6.50 a month, no longer a range.
+P.update(delay_share=U(0.60, 0.95, N), post_delay12=U(0.45, 0.75, N), frail_adj=U(0.85, 1.00, N))
+P['partb_rise'] = np.full(N, 6.50)
 
 
 def path(m, total12, ramp6):
@@ -84,7 +94,9 @@ def path(m, total12, ramp6):
 
 
 # ---------------- people over time (stock at end of each month) ----------------
-mcd_work = path(MONTHS, EXP_TOTAL * P['mcd_loss12'], P['mcd_ramp6'])            # (13, N)
+mcd_full = EXP_TOTAL * P['mcd_loss12'] * P['frail_adj']
+mcd_work = (path(MONTHS, mcd_full * (1 - P['delay_share']), P['mcd_ramp6'])           # states enforcing in January
+            + path(MONTHS, mcd_full * P['delay_share'] * P['post_delay12'], np.zeros(N)))  # states holding off to July
 mcd_renew = path(MONTHS, EXP_TOTAL * P['renew_loss12'], np.full(N, 0.4))
 mcd_loss = mcd_work + mcd_renew
 imm = np.vstack([P['imm_mcd'] + P['imm_mcr'] * (MONTHS[i] >= 0) for i in range(len(MONTHS))])

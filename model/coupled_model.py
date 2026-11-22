@@ -38,7 +38,7 @@ MONTHS = 12
 # ---------------- state inputs (same as the independent model) ----------------
 imp = pd.read_csv(H + 'impact_2027.csv')
 snap_st = pd.read_csv(H + 'snap_fy2025_raw.txt', sep='|', names=['state', 'snap_fy2025'])
-med = pd.read_csv(H + 'medicaid_chip_enrollment_jun2026.csv')[['abbr', 'medicaid_chip_enrollees']]
+med = pd.read_csv(H + 'medicaid_chip_enrollment_jul2026.csv')[['abbr', 'medicaid_chip_enrollees']]
 mcr = pd.read_csv(H + 'medicare_enrollment_2024.csv')[['abbr', 'medicare_enrollees']]
 d = (imp[['state', 'abbr', 'population_2025', 'exp_scaled']].merge(snap_st, on='state')
      .merge(med, on='abbr').merge(mcr, on='abbr'))
@@ -90,7 +90,7 @@ def draw(rho_friction=0.6, rho_economy=0.7, seed=SEED):
         snap_proc=U(0.003, 0.012, cu(zF, rho_friction)),  # monthly paperwork cuts, employed recipients
         snap_back=U(0.03, 0.08),               # monthly return to SNAP for employed people who were cut
         # --- SNAP nationwide (anchored to 2026 data) ---
-        snap_drop_obs=U(4.6e6, 5.4e6),         # observed fall July 2025 -> mid-2026 (USDA 42.0M -> 37.0M Apr; CBPP >5M by June)
+        snap_drop_obs=U(5.5e6, 5.8e6),         # observed fall: 41.6M (Jul 2025) -> 36.1M (Jul 2026) -> 35.8M (Aug 2026), USDA via FRAC/Newsweek
         snap_policy_share=U(0.45, 0.85, cu(zF, rho_friction)),  # share of that fall caused by the law (rest: economy, chilling, other)
         snap_add27=U(0.1e6, 0.6e6, cu(zE, rho_economy)),        # further 2027 losses (state cost shift from Oct 2026, waivers ending)
         snap_benefit=U(185, 195),              # $ per person per month
@@ -130,6 +130,11 @@ def draw(rho_friction=0.6, rho_economy=0.7, seed=SEED):
         partb_payers=U(54e6, 58e6), partb_rise=U(5.5, 8.0), partd_ded_payers=U(10e6, 18e6),
         partd_cap_hitters=U(1.3e6, 2.4e6), pdp_prem_rise=U(3, 10), pdp_payers=U(17e6, 21e6),
     )
+    # November 2026 updates, drawn after the original inputs so those keep their values (see forecast_model.py):
+    P['delay_share'] = U(0.60, 0.95)      # expansion adults in states using CMS's hold-harmless period to June 30, 2027
+    P['frail_more'] = U(0.00, 0.04)       # more adults exempt after the court blocked the narrower medically frail rule
+    P['exempt0'] = np.minimum(P['exempt0'] + P['frail_more'], 0.70)
+    P['partb_rise'] = np.full(N, 6.50)    # CMS final 2027 Part B premium $209.40 (+$6.50)
     return P
 
 
@@ -210,6 +215,8 @@ def run_chain(P, policy=True):
             c = 1 / 12
             pf = np.broadcast_to(P['base_churn'], (4, 2, 2, N)).copy()
             r = np.broadcast_to(P['reenroll_cf'], (4, 2, 2, N)).copy()
+        if policy and t < 6:  # hold-harmless states: checks happen, but only ordinary renewal churn removes anyone
+            pf = (1 - P['delay_share']) * pf + P['delay_share'] * P['base_churn']
         fail = Mx * c * pf
         back_in = X[1] * r
         X[0] = Mx - fail + back_in
