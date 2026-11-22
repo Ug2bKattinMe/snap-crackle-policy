@@ -1,45 +1,45 @@
 metric_id,metric,horizon,months,low,median,high,unit
-people,Combined people affected (de-duplicated),6 months,6,4851653.36895328,5898937.5262680445,7080903.465006787,people
-people,Combined people affected (de-duplicated),12 months,12,6007255.148432228,7345028.209258062,8808969.209332934,people
-mcd_loss,Off Medicaid (work rules + 6-month renewals),6 months,6,859136.9294980832,1407234.723657946,2167613.778433884,people
-mcd_loss,Off Medicaid (work rules + 6-month renewals),12 months,12,1989143.9522834814,3080886.039561954,4294372.951974441,people
-snap_off,Off SNAP because of the law,6 months,6,2558339.128312166,3105337.382797274,3803198.2902914975,people
-snap_off,Off SNAP because of the law,12 months,12,2558339.128312166,3105337.382797274,3803198.2902914975,people
+people,Combined people affected (de-duplicated),6 months,6,4459969.536008307,5549047.165829837,6780548.377812188,people
+people,Combined people affected (de-duplicated),12 months,12,5708854.6840951815,7021451.9160537,8487996.1374211,people
+mcd_loss,Off Medicaid (work rules + 6-month renewals),6 months,6,196707.11169284704,443344.3929148617,793547.957532393,people
+mcd_loss,Off Medicaid (work rules + 6-month renewals),12 months,12,1343507.7952436253,2141376.6363104247,3121452.8826337303,people
+snap_off,Off SNAP because of the law,6 months,6,2709462.9781623683,3431360.3334879354,4342930.709319406,people
+snap_off,Off SNAP because of the law,12 months,12,2709462.9781623683,3431360.3334879354,4342930.709319406,people
 mkt,Lost Marketplace coverage or subsidy,6 months,6,713120.9691258096,1349922.4069510084,2128202.7765392675,people
 mkt,Lost Marketplace coverage or subsidy,12 months,12,793194.975171435,1501750.4507438159,2360639.29423628,people
 imm,Immigrants losing Medicaid or Medicare,6 months,6,153530.9980954761,199946.40444882342,246749.88716465593,people
 imm,Immigrants losing Medicaid or Medicare,12 months,12,153530.9980954761,199946.40444882342,246749.88716465593,people
-job_losers,Job losers counted,6 months,6,147016.3372441139,218528.35256803193,315270.2360428153,people
-job_losers,Job losers counted,12 months,12,220412.7151525336,331695.09892165824,473783.907566153,people
-jobs_cut,Jobs lost from the cuts,6 months,6,146205.89053561355,218030.902494328,315270.2360428153,people
-jobs_cut,Jobs lost from the cuts,12 months,12,217215.39170305463,326916.3980141282,471205.32065459073,people
+job_losers,Job losers counted,6 months,6,111459.00115758863,168467.23980173556,242020.2559018418,people
+job_losers,Job losers counted,12 months,12,188561.34914601376,284084.93931412825,415952.6232772405,people
+jobs_cut,Jobs lost from the cuts,6 months,6,110186.45459804502,166082.13619078454,241201.72943816835,people
+jobs_cut,Jobs lost from the cuts,12 months,12,185600.39497585467,277261.3637686721,398504.2378476012,people
 jobs_econ,"Change in unemployed, economy-wide (Fed outlook)",6 months,6,-139472.1566966342,-14056.438492180496,192515.75921915352,people
 jobs_econ,"Change in unemployed, economy-wide (Fed outlook)",12 months,12,-278944.31339326693,-28112.87698436099,385031.5184383056,people
-fed_cut,Federal spending reduction ($),6 months,6,7107426893.633362,9298607306.124752,12064051899.016056,dollars
-fed_cut,Federal spending reduction ($),12 months,12,18381970267.56522,24162980807.32709,31037106762.587994,dollars
-gdp_loss,GDP loss ($),6 months,6,8833467555.343801,11483401867.928808,14829121021.621902,dollars
-gdp_loss,GDP loss ($),12 months,12,22568834350.26117,29480119686.682938,37734233988.04313,dollars
-tax_loss,State and local tax revenue loss ($),6 months,6,648802382.2319193,913922303.4964634,1267608079.1559443,dollars
-tax_loss,State and local tax revenue loss ($),12 months,12,1660085922.725296,2343546679.3708997,3237172332.4322653,dollars
-newly_uninsured,Newly uninsured people,6 months,6,1656980.1248180768,2455257.3772363015,3478660.4158276864,people
-newly_uninsured,Newly uninsured people,12 months,12,2739027.2092159986,3949509.4006067524,5430295.586177387,people
-er_visits,ER visits by the newly uninsured,6 months,6,292229.2657510566,488757.6068250313,784247.0686179224,people
-er_visits,ER visits by the newly uninsured,12 months,12,831751.5271887826,1360304.8725036853,2123835.926389964,people
-ip_stays,Hospital stays by the newly uninsured,6 months,6,25375.938955568792,42206.13015511472,67509.09241842925,people
-ip_stays,Hospital stays by the newly uninsured,12 months,12,72560.2269673959,117273.87845909368,182525.59960229314,people
-hosp_er_cost,Cost of hospital and ER care for the newly uninsured ($),6 months,6,616303000.5276518,997157322.8137715,1548722138.7869792,dollars
-hosp_er_cost,Cost of hospital and ER care for the newly uninsured ($),12 months,12,1765219612.7718315,2767149838.351489,4184490695.460652,dollars
-er_cost,Emergency room visits ($),6 months,6,232879070.75813138,402849678.55759394,662710131.247754,dollars
-er_cost,Emergency room visits ($),12 months,12,664219622.0623897,1116791211.1799052,1793892440.2846787,dollars
-ip_cost,Hospital inpatient stays ($),6 months,6,344531419.1480162,586851738.4101827,968345921.8688321,dollars
-ip_cost,Hospital inpatient stays ($),12 months,12,981644242.1198723,1629865722.13234,2621706120.418308,dollars
-uncomp_care,Unpaid by patients: uncompensated hospital care ($),6 months,6,503090091.0094657,823814565.4832412,1293508391.6173918,dollars
-uncomp_care,Unpaid by patients: uncompensated hospital care ($),12 months,12,1439907378.8683228,2282649702.8733745,3500296527.47114,dollars
-household_cost,Added household costs ($),6 months,6,7217191535.826235,8349860934.279776,9558481543.635628,dollars
-household_cost,Added household costs ($),12 months,12,14805527039.19997,17153375452.91452,19736858361.5253,dollars
-lost_snap,Lost SNAP benefits ($),6 months,6,2907877136.968326,3540303178.846528,4343021171.576463,dollars
-lost_snap,Lost SNAP benefits ($),12 months,12,5815754273.936652,7080606357.693055,8686042343.152924,dollars
-new_oop,"New out-of-pocket medical costs, newly uninsured ($)",6 months,6,397413961.9049724,792600039.4384356,1415434790.658357,dollars
-new_oop,"New out-of-pocket medical costs, newly uninsured ($)",12 months,12,1127229975.7719114,2208586096.282857,3806815006.258394,dollars
-medicare_cost,Added Medicare premiums and drug costs ($),6 months,6,3238979549.6821003,3960029481.0875635,4689659849.476031,dollars
-medicare_cost,Added Medicare premiums and drug costs ($),12 months,12,6392401797.819983,7754494219.005087,9137025221.351,dollars
+fed_cut,Federal spending reduction ($),6 months,6,6030842080.195959,8063006539.949948,10653121537.750114,dollars
+fed_cut,Federal spending reduction ($),12 months,12,15370443640.610691,20141027801.363632,25956623943.546516,dollars
+gdp_loss,GDP loss ($),6 months,6,7584910252.572415,10118870718.328773,13335583525.925552,dollars
+gdp_loss,GDP loss ($),12 months,12,19083054936.328133,24885423206.843025,32067042514.801888,dollars
+tax_loss,State and local tax revenue loss ($),6 months,6,561499432.9955138,803809418.7808425,1135514611.2740054,dollars
+tax_loss,State and local tax revenue loss ($),12 months,12,1403123868.8943126,1980747707.7098894,2743558359.4469166,dollars
+newly_uninsured,Newly uninsured people,6 months,6,1036319.066017859,1653407.5737970523,2450098.6955998163,people
+newly_uninsured,Newly uninsured people,12 months,12,2180336.0750925094,3177736.8800500236,4431199.864447314,people
+er_visits,ER visits by the newly uninsured,6 months,6,213636.31565344156,379324.6152445774,637658.3435733403,people
+er_visits,ER visits by the newly uninsured,12 months,12,616934.4578279507,1036069.9298503627,1661122.7940939574,people
+ip_stays,Hospital stays by the newly uninsured,6 months,6,18591.342598855383,32842.85711461806,54615.28664007856,people
+ip_stays,Hospital stays by the newly uninsured,12 months,12,53905.934530513005,89542.92589319087,142318.07483586724,people
+hosp_er_cost,Cost of hospital and ER care for the newly uninsured ($),6 months,6,451280611.7991633,775183141.8447572,1257677574.605322,dollars
+hosp_er_cost,Cost of hospital and ER care for the newly uninsured ($),12 months,12,1300518331.5454576,2114112001.9555888,3279667130.939768,dollars
+er_cost,Emergency room visits ($),6 months,6,170449887.78873083,311753772.62477815,539867510.7684783,dollars
+er_cost,Emergency room visits ($),12 months,12,490231847.08579236,852084498.92612,1402377216.2099764,dollars
+ip_cost,Hospital inpatient stays ($),6 months,6,252598684.73964176,456634719.36804575,779624265.6220157,dollars
+ip_cost,Hospital inpatient stays ($),12 months,12,727046445.6408962,1244971003.4967499,2042276028.895615,dollars
+uncomp_care,Unpaid by patients: uncompensated hospital care ($),6 months,6,368695498.3264431,638880274.7488554,1050246785.6931481,dollars
+uncomp_care,Unpaid by patients: uncompensated hospital care ($),12 months,12,1068639528.8662418,1742740443.256318,2735541792.219288,dollars
+household_cost,Added household costs ($),6 months,6,7327398224.352416,8447020726.736643,9708602845.328163,dollars
+household_cost,Added household costs ($),12 months,12,14917697788.975494,17193314165.360313,19781705958.085567,dollars
+lost_snap,Lost SNAP benefits ($),6 months,6,3081262794.307239,3912284722.470377,4957961474.473626,dollars
+lost_snap,Lost SNAP benefits ($),12 months,12,6162525588.614478,7824569444.940752,9915922948.947252,dollars
+new_oop,"New out-of-pocket medical costs, newly uninsured ($)",6 months,6,294397150.39403194,612878422.9058243,1144530300.4836786,dollars
+new_oop,"New out-of-pocket medical costs, newly uninsured ($)",12 months,12,844756536.1961282,1678684995.880601,2978518465.265121,dollars
+medicare_cost,Added Medicare premiums and drug costs ($),6 months,6,3334673025.57933,3874806987.554084,4422357991.188043,dollars
+medicare_cost,Added Medicare premiums and drug costs ($),12 months,12,6628877464.011489,7592284494.754633,8579420663.288392,dollars
