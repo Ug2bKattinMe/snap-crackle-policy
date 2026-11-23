@@ -15,5 +15,10 @@
     };
     document.querySelectorAll('.fx-tab').forEach((b) => b.addEventListener('click', () => go(b.dataset.tab)));
     document.querySelectorAll('.fx-go').forEach((b) => b.addEventListener('click', () => go(b.dataset.goto)));
+    // the browser's Back and Forward buttons, or a link to #home, #forecast and so on, switch tabs too
+    window.addEventListener('hashchange', () => {
+      const name = location.hash.slice(1);
+      if (names.includes(name) && name !== current) { current = name; show(); window.dispatchEvent(new Event('resize')); }
+    });
     dash.onData(show);
   })();

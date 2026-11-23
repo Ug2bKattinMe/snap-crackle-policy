@@ -70,7 +70,7 @@
       fn();
     },
     setLink(name) {
-      history.replaceState(null, '', `#${name}`);
+      if (location.hash !== `#${name}`) history.pushState(null, '', `#${name}`);  // so Back returns to the previous tab
     },
     draw(name, fn) {
       if (!fn) {  // dash.draw(name) runs that drawing again
